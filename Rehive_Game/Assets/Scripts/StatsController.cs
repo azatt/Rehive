@@ -90,8 +90,6 @@ public class StatsController : MonoBehaviour
         playerStats.AddStats(Stats.Type.Camo, amount);
         UIController.camoText.text = "Camo:" + playerStats.camo.ToString();
         int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 4);
-        print("colorindex");
-        print(colorIndex);
         body.GetComponent<Renderer>().enabled = true;       
         body.GetComponent<Renderer>().sharedMaterial = materials[colorIndex];
        // childObj.GetComponent<Renderer>().sharedMaterial.color
@@ -111,7 +109,8 @@ public class StatsController : MonoBehaviour
         startingScale = transform.localScale;
         transitionStartTime = Time.time;
         UIController.sizeText.text = "Size:" + playerStats.size.ToString();
-        targetScale = new Vector3(1 + playerStats.size/10, 1 + playerStats.size/10, 1+ playerStats.size/10);
+        float scaleFromSize = 1 + (float)(playerStats.size) / 20f;
+        targetScale = new Vector3(scaleFromSize,scaleFromSize, scaleFromSize);
     }
 
     private void growInterpolate()
