@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CaterPillarMovement : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] public float speed;
+    [SerializeField] public float initialSpeed;
 
     // Start is called before the first frame update
     void Start()
