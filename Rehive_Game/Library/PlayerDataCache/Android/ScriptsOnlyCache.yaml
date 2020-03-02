@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - ControllingDayNight
     - UnityTemplateProjects.SimpleCameraController
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
@@ -30,8 +31,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.UI.UIFoldout
     - UnityEngine.Rendering.Volume
     - UnityEngine.Rendering.VolumeProfile
-    Unity.RenderPipelines.Universal.Editor.dll:
-    - UnityEditor.Rendering.Universal.AssetVersion
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Rendering.Universal.Bloom
     - UnityEngine.Rendering.Universal.ColorAdjustments
@@ -99,7 +98,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/TreeTestScene 1.unity:
+    Assets/Scenes/DayNightScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -159,73 +158,75 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12302}
     - Class: 114
-      Script: {instanceID: 12610}
+      Script: {instanceID: 12612}
     - Class: 114
-      Script: {instanceID: 12664}
+      Script: {instanceID: 12666}
     - Class: 114
-      Script: {instanceID: 12734}
+      Script: {instanceID: 12736}
     - Class: 114
-      Script: {instanceID: 12976}
+      Script: {instanceID: 12978}
     - Class: 114
-      Script: {instanceID: 13184}
+      Script: {instanceID: 13186}
     - Class: 114
-      Script: {instanceID: 13232}
+      Script: {instanceID: 13234}
     - Class: 114
-      Script: {instanceID: 13294}
+      Script: {instanceID: 13296}
     - Class: 114
-      Script: {instanceID: 13400}
+      Script: {instanceID: 13402}
     - Class: 114
-      Script: {instanceID: 13652}
+      Script: {instanceID: 13654}
     - Class: 114
-      Script: {instanceID: 13682}
+      Script: {instanceID: 13684}
     - Class: 114
-      Script: {instanceID: 13710}
+      Script: {instanceID: 13712}
     - Class: 114
-      Script: {instanceID: 13906}
+      Script: {instanceID: 13908}
     - Class: 114
-      Script: {instanceID: 14008}
+      Script: {instanceID: 14010}
     - Class: 114
-      Script: {instanceID: 14068}
+      Script: {instanceID: 14070}
     - Class: 114
-      Script: {instanceID: 14130}
+      Script: {instanceID: 14132}
     - Class: 114
-      Script: {instanceID: 14152}
+      Script: {instanceID: 14154}
     - Class: 114
-      Script: {instanceID: 14278}
+      Script: {instanceID: 14280}
     - Class: 114
-      Script: {instanceID: 14308}
+      Script: {instanceID: 14310}
     - Class: 114
-      Script: {instanceID: 14318}
+      Script: {instanceID: 14320}
     - Class: 114
-      Script: {instanceID: 14362}
+      Script: {instanceID: 14364}
     - Class: 114
-      Script: {instanceID: 14564}
+      Script: {instanceID: 14566}
     - Class: 114
-      Script: {instanceID: 14654}
+      Script: {instanceID: 14656}
     - Class: 114
-      Script: {instanceID: 14670}
+      Script: {instanceID: 14672}
     - Class: 114
-      Script: {instanceID: 14726}
+      Script: {instanceID: 14728}
     - Class: 114
-      Script: {instanceID: 14964}
+      Script: {instanceID: 14968}
     - Class: 114
-      Script: {instanceID: 15154}
+      Script: {instanceID: 15158}
     - Class: 114
-      Script: {instanceID: 15200}
-    - Class: 114
-      Script: {instanceID: 15418}
+      Script: {instanceID: 15204}
     - Class: 114
       Script: {instanceID: 15422}
     - Class: 114
-      Script: {instanceID: 15480}
+      Script: {instanceID: 15426}
     - Class: 114
-      Script: {instanceID: 15482}
+      Script: {instanceID: 15484}
     - Class: 114
-      Script: {instanceID: 15592}
+      Script: {instanceID: 15486}
     - Class: 114
-      Script: {instanceID: 15608}
+      Script: {instanceID: 15598}
     - Class: 114
       Script: {instanceID: 15614}
+    - Class: 114
+      Script: {instanceID: 15620}
+    - Class: 114
+      Script: {instanceID: 70376}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -263,6 +264,8 @@ ScriptsOnlyBuild:
     - Class: 227
       Script: {instanceID: 0}
     - Class: 228
+      Script: {instanceID: 0}
+    - Class: 258
       Script: {instanceID: 0}
     - Class: 363
       Script: {instanceID: 0}
@@ -569,6 +572,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMeshUI
+  - hash:
+      serializedVersion: 2
+      Hash: 33939b60f8dc46db8435755111e39ff4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DayNightController
   - hash:
       serializedVersion: 2
       Hash: 755aa9308df9cb5ec0a491ba4f5f09a5
@@ -1297,6 +1306,12 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
+      Hash: 9e9a33fffc6eb6ee4ce433f424ab612e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RoatateCamera
+  - hash:
+      serializedVersion: 2
       Hash: 08705cef837f5d18a4c86b19b1ccf347
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
@@ -1325,7 +1340,55 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: cf0406f277cad8ec73c6191c09974c7d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DigitalRuby.RainMaker
+    className: DemoScript
+  - hash:
+      serializedVersion: 2
+      Hash: 2dd2bacdc5371d1256b8aca94283063e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DigitalRuby.RainMaker
+    className: RainScript
+  - hash:
+      serializedVersion: 2
+      Hash: 1a54fa0372f64f0aa311d445332e24b9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DigitalRuby.RainMaker
+    className: RainCollision
+  - hash:
+      serializedVersion: 2
+      Hash: d18cc7ba10aa006e6bd980ec49a29a17
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DigitalRuby.RainMaker
+    className: BaseRainScript
+  - hash:
+      serializedVersion: 2
+      Hash: 76b6aef2414f95a502f23603160b5812
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DigitalRuby.RainMaker
+    className: RainScript2D
+  - hash:
+      serializedVersion: 2
+      Hash: 5debaa58a5b0baf31a991235de0c9047
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DigitalRuby.RainMaker
+    className: DemoScriptStartRainOnSpaceBar
+  - hash:
+      serializedVersion: 2
+      Hash: da72d5124e2ced2a9dafa1f76240dda8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: DigitalRuby.RainMaker
+    className: DemoScript2D
+  - hash:
+      serializedVersion: 2
+      Hash: 764d73599cc0015262994aada334e662
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ControllingDayNight
   platform: 13
   scenePathNames:
-  - Assets/Scenes/TreeTestScene 1.unity
-  playerPath: C:/Users/Azat/Desktop/mobile_buildNewTerrain.apk
+  - Assets/Scenes/DayNightScene.unity
+  playerPath: C:/Users/Azat/Desktop/mobile_buildDayNight.apk
