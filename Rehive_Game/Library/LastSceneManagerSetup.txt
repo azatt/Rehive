@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/DayNightScene.unity
+- path: Assets/Scenes/GameTerrainScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

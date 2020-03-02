@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/DayNightScene.unity
-    guid: be2203b1e27590444874c73aff3828d3
+    path: Assets/Scenes/GameTerrainScene.unity
+    guid: 508787dd733da59408a535e359f05e62
   m_configObjects: {}
