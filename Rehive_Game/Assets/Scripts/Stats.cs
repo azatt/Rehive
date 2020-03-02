@@ -25,7 +25,6 @@ public class Stats : MonoBehaviour
     public void AddStats(Type type, int amount)
     {
 
-        print("added");
         switch (type)
         {
             case Type.Speed:

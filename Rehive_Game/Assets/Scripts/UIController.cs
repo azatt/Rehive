@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     public Text sizeText;
     public Text camoText;
     public Text dangerText;
+    public Text threatLevel;
 
     // Start is called before the first frame update
     void Start()
