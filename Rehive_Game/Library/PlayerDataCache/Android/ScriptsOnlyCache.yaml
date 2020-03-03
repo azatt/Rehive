@@ -3,6 +3,9 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - ControllingDayNight
     - UnityTemplateProjects.SimpleCameraController
+    - lb_Bird
+    - lb_BirdController
+    - lb_CrowProximity
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -55,9 +58,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Experimental.TerrainAPI.ValueNoise
     - UnityEditor.Experimental.TerrainAPI.VoronoiNoise
     Unity.Timeline.Editor.dll:
-    - UnityEditor.Timeline.AnimationPlayableAssetInspector
     - UnityEditor.Timeline.SequenceHierarchy
-    - UnityEditor.Timeline.TimelineAssetViewModel
     - UnityEditor.Timeline.TimelineWindow
     Unity.Timeline.dll:
     - UnityEngine.Timeline.AnimationPlayableAsset
@@ -114,11 +115,21 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
       Script: {instanceID: 0}
     - Class: 95
       Script: {instanceID: 0}
@@ -127,109 +138,113 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11658}
+      Script: {instanceID: 12188}
     - Class: 114
-      Script: {instanceID: 11712}
-    - Class: 114
-      Script: {instanceID: 11778}
-    - Class: 114
-      Script: {instanceID: 11888}
-    - Class: 114
-      Script: {instanceID: 11912}
-    - Class: 114
-      Script: {instanceID: 11946}
-    - Class: 114
-      Script: {instanceID: 12020}
-    - Class: 114
-      Script: {instanceID: 12024}
-    - Class: 114
-      Script: {instanceID: 12104}
-    - Class: 114
-      Script: {instanceID: 12106}
-    - Class: 114
-      Script: {instanceID: 12122}
-    - Class: 114
-      Script: {instanceID: 12144}
-    - Class: 114
-      Script: {instanceID: 12270}
+      Script: {instanceID: 12242}
     - Class: 114
       Script: {instanceID: 12308}
     - Class: 114
-      Script: {instanceID: 12406}
+      Script: {instanceID: 12418}
     - Class: 114
-      Script: {instanceID: 12584}
+      Script: {instanceID: 12442}
     - Class: 114
-      Script: {instanceID: 12618}
+      Script: {instanceID: 12476}
     - Class: 114
-      Script: {instanceID: 12672}
+      Script: {instanceID: 12550}
     - Class: 114
-      Script: {instanceID: 12742}
+      Script: {instanceID: 12554}
     - Class: 114
-      Script: {instanceID: 12984}
+      Script: {instanceID: 12634}
     - Class: 114
-      Script: {instanceID: 13192}
+      Script: {instanceID: 12636}
     - Class: 114
-      Script: {instanceID: 13240}
+      Script: {instanceID: 12652}
     - Class: 114
-      Script: {instanceID: 13302}
+      Script: {instanceID: 12674}
     - Class: 114
-      Script: {instanceID: 13408}
+      Script: {instanceID: 12800}
     - Class: 114
-      Script: {instanceID: 13658}
+      Script: {instanceID: 12834}
     - Class: 114
-      Script: {instanceID: 13688}
+      Script: {instanceID: 12932}
     - Class: 114
-      Script: {instanceID: 13716}
+      Script: {instanceID: 13108}
     - Class: 114
-      Script: {instanceID: 13912}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 14014}
+      Script: {instanceID: 13194}
     - Class: 114
-      Script: {instanceID: 14074}
+      Script: {instanceID: 13262}
     - Class: 114
-      Script: {instanceID: 14136}
+      Script: {instanceID: 13504}
     - Class: 114
-      Script: {instanceID: 14158}
+      Script: {instanceID: 13710}
     - Class: 114
-      Script: {instanceID: 14278}
+      Script: {instanceID: 13758}
     - Class: 114
-      Script: {instanceID: 14284}
+      Script: {instanceID: 13820}
     - Class: 114
-      Script: {instanceID: 14314}
+      Script: {instanceID: 13926}
     - Class: 114
-      Script: {instanceID: 14324}
+      Script: {instanceID: 14174}
     - Class: 114
-      Script: {instanceID: 14368}
+      Script: {instanceID: 14204}
     - Class: 114
-      Script: {instanceID: 14564}
+      Script: {instanceID: 14232}
     - Class: 114
-      Script: {instanceID: 14654}
+      Script: {instanceID: 14414}
     - Class: 114
-      Script: {instanceID: 14670}
+      Script: {instanceID: 14516}
     - Class: 114
-      Script: {instanceID: 14726}
+      Script: {instanceID: 14576}
     - Class: 114
-      Script: {instanceID: 14948}
+      Script: {instanceID: 14638}
     - Class: 114
-      Script: {instanceID: 14966}
+      Script: {instanceID: 14660}
     - Class: 114
-      Script: {instanceID: 15156}
+      Script: {instanceID: 14780}
     - Class: 114
-      Script: {instanceID: 15202}
+      Script: {instanceID: 14786}
     - Class: 114
-      Script: {instanceID: 15420}
+      Script: {instanceID: 14816}
     - Class: 114
-      Script: {instanceID: 15424}
+      Script: {instanceID: 14826}
     - Class: 114
-      Script: {instanceID: 15482}
+      Script: {instanceID: 14870}
     - Class: 114
-      Script: {instanceID: 15484}
+      Script: {instanceID: 15064}
     - Class: 114
-      Script: {instanceID: 15596}
+      Script: {instanceID: 15152}
     - Class: 114
-      Script: {instanceID: 15612}
+      Script: {instanceID: 15168}
     - Class: 114
-      Script: {instanceID: 15618}
+      Script: {instanceID: 15222}
+    - Class: 114
+      Script: {instanceID: 15444}
+    - Class: 114
+      Script: {instanceID: 15462}
+    - Class: 114
+      Script: {instanceID: 15650}
+    - Class: 114
+      Script: {instanceID: 15696}
+    - Class: 114
+      Script: {instanceID: 15914}
+    - Class: 114
+      Script: {instanceID: 15918}
+    - Class: 114
+      Script: {instanceID: 15976}
+    - Class: 114
+      Script: {instanceID: 15978}
+    - Class: 114
+      Script: {instanceID: 16090}
+    - Class: 114
+      Script: {instanceID: 16106}
+    - Class: 114
+      Script: {instanceID: 16112}
+    - Class: 114
+      Script: {instanceID: 32138}
+    - Class: 114
+      Script: {instanceID: 32142}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -237,6 +252,8 @@ ScriptsOnlyBuild:
     - Class: 135
       Script: {instanceID: 0}
     - Class: 136
+      Script: {instanceID: 0}
+    - Class: 137
       Script: {instanceID: 0}
     - Class: 154
       Script: {instanceID: 0}
@@ -249,6 +266,10 @@ ScriptsOnlyBuild:
     - Class: 193
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 205
       Script: {instanceID: 0}
@@ -277,6 +298,12 @@ ScriptsOnlyBuild:
     - Class: 1953259897
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 090a3c84271bd169fd6977e6879c7c00
+    assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
+    namespaceName: UnityEngine.Rendering.Universal
+    className: UniversalRenderPipelineAsset
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -709,12 +736,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: FilmGrain
-  - hash:
-      serializedVersion: 2
-      Hash: 090a3c84271bd169fd6977e6879c7c00
-    assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
-    namespaceName: UnityEngine.Rendering.Universal
-    className: UniversalRenderPipelineAsset
   - hash:
       serializedVersion: 2
       Hash: 5e1eefcd5106de6c2e85908a3b2d3f04
@@ -1345,7 +1366,31 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: b7a41f820cdf22a536704c04ab926ad2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: lb_Bird
+  - hash:
+      serializedVersion: 2
+      Hash: 62fb91e5313b42ef65f781acd7fd6242
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: lb_BirdController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: lb_CrowProximity
+  - hash:
+      serializedVersion: 2
+      Hash: 2de4ed12c8bfb74f543cf510d2d7df7f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: livingBirdsDemoScript
   platform: 13
   scenePathNames:
   - Assets/Scenes/GameTerrainScene.unity
-  playerPath: C:/Users/Azat/Desktop/mobile_buildCutscene.apk
+  playerPath: C:/Users/Azat/Desktop/mobile_buildBirds.apk
