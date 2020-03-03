@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/GameTerrainScene.unity
+- path: Assets/UI/PauseMenu.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
