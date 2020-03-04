@@ -1,0 +1,49 @@
+fileFormatVersion: 2
+guid: c0cbcbee84f311e4b953130910aa0b1e
+SpeedTreeImporter:
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BroadleafBark_LOD0
+    second: {fileID: 4971969292791315209, guid: c0cbcbee84f311e4b953130910aa0b1e,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Broadleaf_Desktop_LOD0
+    second: {fileID: -5556678222518063815, guid: c0cbcbee84f311e4b953130910aa0b1e,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cap_01_LOD0
+    second: {fileID: 8949354479740562423, guid: c0cbcbee84f311e4b953130910aa0b1e,
+      type: 3}
+  serializedVersion: 6
+  mainColor: {r: 1, g: 1, b: 1, a: 1}
+  hueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
+  alphaTestRef: 0.33
+  bestWindQuality: 4
+  hasBillboard: 0
+  lODSettings:
+  - height: 0.01
+    castShadows: 1
+    receiveShadows: 1
+    useLightProbes: 1
+    reflectionProbeUsage: 1
+    enableBump: 1
+    enableHue: 1
+    enableSubsurface: 1
+    windQuality: 4
+  enableSmoothLODTransition: 1
+  animateCrossFading: 1
+  billboardTransitionCrossFadeWidth: 0.25
+  fadeOutWidth: 0.25
+  scaleFactor: 0.3048
+  materialVersion: 3
+  materialLocation: 1
+  fileIDType: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

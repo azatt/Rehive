@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/character design branch.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
