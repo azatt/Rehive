@@ -38,7 +38,7 @@ public class Climb : MonoBehaviour
     public void CheckForClimb()
     {
         Vector3 origin = transform.position;
-        Vector3 dir = -transform.right;
+        Vector3 dir = transform.right;
         RaycastHit hit;
         Debug.DrawRay(origin, dir, Color.green);
         if(Physics.Raycast(origin,dir, out hit, 10))
