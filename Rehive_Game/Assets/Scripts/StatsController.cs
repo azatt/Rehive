@@ -126,7 +126,7 @@ public class StatsController : MonoBehaviour
         startingScale = transform.localScale;
         transitionStartTime = Time.time;
         UIController.sizeText.text = "Size:" + playerStats.size.ToString();
-        float scaleFromSize = 1 + (float)(playerStats.size) / 20f;
+        float scaleFromSize = 1 + (float)(playerStats.size) / 40f;
         targetScale = new Vector3(scaleFromSize, scaleFromSize, scaleFromSize);
     }
 
