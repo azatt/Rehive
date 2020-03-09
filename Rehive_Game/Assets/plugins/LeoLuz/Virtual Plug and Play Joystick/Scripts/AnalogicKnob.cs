@@ -65,6 +65,8 @@ namespace LeoLuz.PlugAndPlayJoystick
         private method IsInsideArea;
         private DeviceOrientation _devOrientation;
 
+        public GameObject player;
+
 #if UNITY_EDITOR
         private bool OrderOfScriptChanged;
 
