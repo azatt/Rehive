@@ -15,6 +15,7 @@ public class StatsController : MonoBehaviour
     [SerializeField] Material[] materials;
     
     public float threatLevel;
+    public int threatCount;
     public enum GrowingState { growing, stagnating }
     public enum DangerState { hidden, safeZone, danger, waitingForUpdate }
 
@@ -38,11 +39,12 @@ public class StatsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(playerStats.size);
         if (growingState == GrowingState.growing)
         {
             growInterpolate();
         }
+        threatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
+        UIController.threatLevel.text = "ThreatLevel:" +threatLevel.ToString();
     }
     void OnTriggerEnter(Collider otherCollider)
     {
@@ -91,7 +93,7 @@ public class StatsController : MonoBehaviour
     {
         dangerState = DangerState.hidden;
         UIController.dangerText.text = "You are hidden!";
-        UIController.threatLevel.text = "ThreatLevel:0";
+        //UIController.threatLevel.text = "ThreatLevel:0";
     }
 
 
@@ -128,6 +130,7 @@ public class StatsController : MonoBehaviour
         UIController.sizeText.text = "Size:" + playerStats.size.ToString();
         float scaleFromSize = 1 + (float)(playerStats.size) / 40f;
         targetScale = new Vector3(scaleFromSize, scaleFromSize, scaleFromSize);
+        transform.gameObject.AddComponent<Bird>();
     }
 
     private void growInterpolate()
