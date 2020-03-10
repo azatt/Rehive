@@ -20,7 +20,7 @@ public class StatsController : MonoBehaviour
 
     GrowingState growingState;
     public DangerState dangerState;
-    private CaterPillarMovement movementController;
+    private Climb movementController;
     public UIController UIController;
 
     void Start()
@@ -29,7 +29,7 @@ public class StatsController : MonoBehaviour
         growingState = GrowingState.stagnating;
         dangerState = DangerState.danger;
 
-        movementController = GetComponent<CaterPillarMovement>();
+        movementController = GetComponent<Climb>();
         UIController = FindObjectOfType<UIController>();
         body = transform.Find("CaterPillarBody").gameObject;
 
@@ -38,7 +38,7 @@ public class StatsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(playerStats.size);
+        //print(playerStats.size);
         if (growingState == GrowingState.growing)
         {
             growInterpolate();
@@ -54,7 +54,7 @@ public class StatsController : MonoBehaviour
                 Destroy(otherCollider.gameObject);
                 break;
             case PowerUp.Tag.Size:
-                AddToSize(10);
+                AddToSize(4);
                 Destroy(otherCollider.gameObject);
                 break;
             case PowerUp.Tag.Camo:
@@ -116,7 +116,8 @@ public class StatsController : MonoBehaviour
     {
         playerStats.AddStats(Stats.Type.Speed, amount);
         UIController.speedText.text = "Speed:" + playerStats.speed.ToString();
-        movementController.speed = movementController.initialSpeed + playerStats.speed / 10;
+        //movementController.climbSpeed = movementController.initialSpeed + playerStats.speed / 10;
+        movementController.climbSpeed += 1;
     }
 
     private void AddToSize(int amount)
@@ -126,7 +127,7 @@ public class StatsController : MonoBehaviour
         startingScale = transform.localScale;
         transitionStartTime = Time.time;
         UIController.sizeText.text = "Size:" + playerStats.size.ToString();
-        float scaleFromSize = 1 + (float)(playerStats.size) / 40f;
+        float scaleFromSize = 0.1f + (float)(playerStats.size) / 40f;
         targetScale = new Vector3(scaleFromSize, scaleFromSize, scaleFromSize);
     }
 
@@ -150,7 +151,8 @@ public class StatsController : MonoBehaviour
     public Vector3 targetPoint
     {
         get{
-            return transform.position + new Vector3(0, 0.5f, 0);
+            //return transform.position + new Vector3(0, 0.5f, 0);
+            return transform.position + new Vector3(0, 0, 0);
         }
     }
 

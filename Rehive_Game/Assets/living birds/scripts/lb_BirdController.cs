@@ -263,6 +263,14 @@ public class lb_BirdController : MonoBehaviour {
 			}
 			//Find a point off camera to positon the bird and activate it
 			bird.transform.position = FindPositionOffCamera();
+
+
+            //
+            bird.AddComponent<Bird>();
+            GameObject player = GameObject.Find("Cylinder");
+            bird.GetComponent<Bird>().player = player;
+
+            //
 			if(bird.transform.position == Vector3.zero){
 				//couldnt find a suitable spawn point
 				return;

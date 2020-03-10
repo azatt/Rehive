@@ -29,6 +29,7 @@ public class Bird : MonoBehaviour
         RaycastHit hit;
         Vector3 directionToPlayer = statusPlayer.targetPoint - transform.position;         
         Ray rayToPlayer = new Ray(transform.position, directionToPlayer.normalized);
+        Debug.DrawRay(transform.position,rayToPlayer.direction);
         Physics.Raycast(rayToPlayer, out hit);
         if (hit.transform == player.transform)
         {

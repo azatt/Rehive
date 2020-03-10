@@ -302,3 +302,4 @@ C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\obj\Debug\Assembly-CSha
 C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\obj\Debug\Assembly-CSharp.dll
 C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
