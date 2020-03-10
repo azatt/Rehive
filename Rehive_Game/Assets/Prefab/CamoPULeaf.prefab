@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4856468965853121750}
   - component: {fileID: 6040970989074211217}
   m_Layer: 0
-  m_Name: CamoPU
+  m_Name: CamoPULeaf
   m_TagString: camoPU
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 7625605820035488270}
   m_LocalRotation: {x: 0.004061667, y: -0.0026574938, z: -0.44554296, w: 0.89524746}
   m_LocalPosition: {x: -0.025168419, y: 0.422, z: 0.024085999}
-  m_LocalScale: {x: 200, y: 150, z: 150}
+  m_LocalScale: {x: 199.99998, y: 150.00002, z: 300}
   m_Children:
   - {fileID: 4759348069077655022}
   - {fileID: 5601388831885299296}
@@ -199,21 +199,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpotLight
-      objectReference: {fileID: 0}
-    - target: {fileID: 1310268044165736404, guid: f30fde2690b39b44a9ed9c1a724eb69d,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.01655
-      objectReference: {fileID: 0}
-    - target: {fileID: 1310268044165736404, guid: f30fde2690b39b44a9ed9c1a724eb69d,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0104
-      objectReference: {fileID: 0}
-    - target: {fileID: 1310268044165736404, guid: f30fde2690b39b44a9ed9c1a724eb69d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0065
       objectReference: {fileID: 0}
     - target: {fileID: 1310268044165736404, guid: f30fde2690b39b44a9ed9c1a724eb69d,
         type: 3}
