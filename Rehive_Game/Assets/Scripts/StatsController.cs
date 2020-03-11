@@ -31,7 +31,7 @@ public class StatsController : MonoBehaviour
 
         movementController = GetComponent<Climb>();
         UIController = FindObjectOfType<UIController>();
-        body = transform.Find("CaterPillarBody").gameObject;
+        //body = transform.Find("CaterPillarBody").gameObject;
 
     }
 
@@ -108,8 +108,8 @@ public class StatsController : MonoBehaviour
         playerStats.AddStats(Stats.Type.Camo, amount);
         UIController.camoText.text = "Camo:" + playerStats.camo.ToString();
         int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 4);
-        body.GetComponent<Renderer>().enabled = true;
-        body.GetComponent<Renderer>().sharedMaterial = materials[colorIndex];
+       // body.GetComponent<Renderer>().enabled = true;
+       // body.GetComponent<Renderer>().sharedMaterial = materials[colorIndex];
     }
 
     private void AddToSpeed(int amount)

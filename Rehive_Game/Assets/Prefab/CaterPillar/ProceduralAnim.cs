@@ -33,10 +33,11 @@ public class ProceduralAnim : MonoBehaviour
             curSpeed = speed;
             moving = true;
 
-            BodyParts[0].Translate(-BodyParts[0].up * curSpeed * Time.smoothDeltaTime, Space.World);
-
+            //BodyParts[0].Translate(-BodyParts[0].up * curSpeed * Time.smoothDeltaTime, Space.World);
+            /*
             if (Input.GetAxis("Horizontal") != 0)
                 BodyParts[0].Rotate(Vector3.left * rotationspeed * Time.deltaTime * Input.GetAxis("Horizontal"));
+                */
         }
         else
         {
@@ -47,6 +48,7 @@ public class ProceduralAnim : MonoBehaviour
                 anim.SetInteger("i", 0);
             }
         }
+        moving = true;
     }
 
     public void Animation()

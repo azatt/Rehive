@@ -267,7 +267,7 @@ public class lb_BirdController : MonoBehaviour {
 
             //
             bird.AddComponent<Bird>();
-            GameObject player = GameObject.Find("Cylinder");
+            GameObject player = GameObject.Find("Player");
             bird.GetComponent<Bird>().player = player;
 
             //
