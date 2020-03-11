@@ -8,11 +8,12 @@ public class StatsController : MonoBehaviour
     // Start is called before the first frame update
     Stats playerStats;
     [SerializeField] float transitionStartTime;
-    [SerializeField] float growingTime;
+    [SerializeField] float growingTime, colorChangingTime;
     [SerializeField] Vector3 startingScale;
     [SerializeField] Vector3 targetScale;
     [SerializeField] GameObject body;
-    [SerializeField] Material[] materials;
+    [SerializeField] Color[] colors;
+    [SerializeField] Material material;
     
     public float threatLevel;
     public int threatCount;
@@ -23,6 +24,12 @@ public class StatsController : MonoBehaviour
     public DangerState dangerState;
     private CaterPillarMovement movementController;
     public UIController UIController;
+    private Color endingColor;
+    public float timeColorProgressInterpolation;
+    private Color startingColor;
+    public Color currentColor;
+    public int currentColorIndex;
+    public int coroutinesRunning;
 
     void Start()
     {
@@ -33,6 +40,8 @@ public class StatsController : MonoBehaviour
         movementController = GetComponent<CaterPillarMovement>();
         UIController = FindObjectOfType<UIController>();
         body = transform.Find("CaterPillarBody").gameObject;
+        material = body.GetComponent<Renderer>().material;
+        currentColor = colors[0];
 
     }
 
@@ -44,7 +53,7 @@ public class StatsController : MonoBehaviour
             growInterpolate();
         }
         threatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
-        UIController.threatLevel.text = "ThreatLevel:" +threatLevel.ToString();
+        UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" +threatLevel.ToString();
     }
     void OnTriggerEnter(Collider otherCollider)
     {
@@ -110,12 +119,18 @@ public class StatsController : MonoBehaviour
         playerStats.AddStats(Stats.Type.Camo, amount);
         UIController.camoText.text = "Camo:" + playerStats.camo.ToString();
         int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 4);
-        body.GetComponent<Renderer>().enabled = true;
-        body.GetComponent<Renderer>().sharedMaterial = materials[colorIndex];
+
+        if(colorIndex > currentColorIndex)
+        {
+            print("change");
+            StartCoroutine(startInterpolatedColor(colors[colorIndex]));
+        }
+        currentColorIndex = colorIndex;
     }
 
     private void AddToSpeed(int amount)
     {
+
         playerStats.AddStats(Stats.Type.Speed, amount);
         UIController.speedText.text = "Speed:" + playerStats.speed.ToString();
         movementController.speed = movementController.initialSpeed + playerStats.speed / 10;
@@ -143,8 +158,40 @@ public class StatsController : MonoBehaviour
             fractionOfTransition);
 
         // Check if the fall is finished
-        if (fractionOfTransition >= 1) growthComplete();            //wanneer t karakter klaar is met vallen gaat deze naar 'ReachedFallDestination()'
     }
+    IEnumerator startInterpolatedColor(Color newColor)
+    {
+
+        coroutinesRunning++;
+        print("colorchange");
+        startingColor = currentColor;
+        endingColor = newColor;
+        timeColorProgressInterpolation = 0f;
+       
+        while(timeColorProgressInterpolation <  colorChangingTime)
+        {
+            timeColorProgressInterpolation += Time.deltaTime;
+             colorChangeInterpolate();
+
+            yield return 0;
+        }
+
+        coroutinesRunning--;
+    }
+
+   private void colorChangeInterpolate()
+   {
+       float fractionOfTransition = timeColorProgressInterpolation / colorChangingTime;
+
+       Color color = Color.Lerp(
+           startingColor,
+           endingColor,
+           fractionOfTransition);
+
+        // Check if the fall is finished
+        currentColor = color;
+        material.SetColor("_myColor", currentColor);
+   }
 
     private void growthComplete()
     {

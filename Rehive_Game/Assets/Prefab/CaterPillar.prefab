@@ -72,6 +72,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0764f55862bec0245817adb878f956f1, type: 2}
   - {fileID: 2100000, guid: 14671bea144032b4d9bcc5e6cb2eaf9a, type: 2}
   threatLevel: 0
+  threatCount: 0
   dangerState: 0
   UIController: {fileID: 0}
 --- !u!54 &7551451817447366737
@@ -149,7 +150,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 8a291a08297e3154f8c86d1cc37bbe3b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

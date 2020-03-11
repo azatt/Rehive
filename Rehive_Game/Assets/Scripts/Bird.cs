@@ -6,7 +6,7 @@ public class Bird : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject player;
-     StatsController statusPlayer;
+    public StatsController statusPlayer;
     public int threatLevel;
     public GameObject intersection;
     public bool playerInView;
@@ -18,10 +18,6 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (statusPlayer.dangerState == StatsController.DangerState.safeZone)
-        {
-            return;
-        }
         CheckIfHidden();
     }
 
