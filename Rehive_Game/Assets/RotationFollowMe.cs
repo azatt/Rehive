@@ -18,6 +18,8 @@ public class RotationFollowMe : MonoBehaviour
         Vector2 movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         Vector3 moveDirection = (Vector3.forward * movementInput.y + Vector3.right * movementInput.x).normalized;
         //print(Quaternion.LookRotation(moveDirection).x +" "+ Quaternion.LookRotation(moveDirection).y + " " + Quaternion.LookRotation(moveDirection).z);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(transform.position), rotSpeed);
+        //print(moveDirection.x +" "+ moveDirection.y + " " + moveDirection.z);
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(transform.rotation.x + moveDirection.x * 90, transform.rotation.y + moveDirection.y * 90, transform.rotation.z + moveDirection.z * 90));
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotSpeed);
     }
 }
