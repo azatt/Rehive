@@ -6401,6 +6401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1021456673}
+  - component: {fileID: 1021456674}
   m_Layer: 0
   m_Name: FollowMe
   m_TagString: Untagged
@@ -6422,6 +6423,18 @@ Transform:
   m_Father: {fileID: 1210117775}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -179.99998}
+--- !u!114 &1021456674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021456672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f88e9e6fee77243a54f1c15cce63b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1038505356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 3add0ea48b4c0f541b25616dd6e6d4a3,
@@ -9371,7 +9384,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -9583,7 +9596,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 0}
+  sharedProfile: {fileID: 11400000, guid: 2702fdd331cc3744ba7a8c836708268c, type: 2}
 --- !u!4 &1658016898
 Transform:
   m_ObjectHideFlags: 0
