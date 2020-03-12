@@ -41,8 +41,7 @@ public class ProceduralAnim : MonoBehaviour
 
     public void Move()
     {
-        //if (Vector3.Distance(playerOldPos,player.transform.position) > minMovingDistance)
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if (Vector3.Distance(playerOldPos,player.transform.position) > minMovingDistance)
         {
             curSpeed = speed;
             moving = true;
