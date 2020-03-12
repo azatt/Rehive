@@ -7,7 +7,7 @@ public class Bird : MonoBehaviour
     // Start is called before the first frame update
     public GameObject player;
     public StatsController statusPlayer;
-    public int threatLevel;
+    public float threatLevel;
     public GameObject intersection;
     public bool playerInView;
     void Start()
@@ -36,8 +36,10 @@ public class Bird : MonoBehaviour
                 playerInView = true;
                 statusPlayer.threatCount++;
             }
-            statusPlayer.EnterDangerState();
-            statusPlayer.threatLevel += (1 / directionToPlayer.magnitude) * 10 * Time.deltaTime;
+            float camoReduction = 1- ((float)statusPlayer.currentColorIndex / 10f);
+            threatLevel = 1 / Mathf.Pow(directionToPlayer.magnitude, 2f) * 10 * camoReduction * Time.deltaTime;
+
+            statusPlayer.totalThreatLevel += threatLevel;
         }
         else
         {
@@ -48,7 +50,6 @@ public class Bird : MonoBehaviour
                 statusPlayer.threatCount--;
             }
             intersection = hit.transform.gameObject;
-            statusPlayer.EnterHiddenState();
         }
     }
 }

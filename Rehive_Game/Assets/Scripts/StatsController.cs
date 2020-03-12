@@ -15,7 +15,7 @@ public class StatsController : MonoBehaviour
     [SerializeField] Color[] colors;
     [SerializeField] Material material;
     
-    public float threatLevel;
+    public float totalThreatLevel;
     public int threatCount;
     public enum GrowingState { growing, stagnating }
     public enum DangerState { hidden, safeZone, danger, waitingForUpdate }
@@ -42,6 +42,7 @@ public class StatsController : MonoBehaviour
         body = transform.Find("CaterPillarBody").gameObject;
         material = body.GetComponent<Renderer>().material;
         currentColor = colors[0];
+        material.SetColor("_myColor", currentColor);
 
     }
 
@@ -52,8 +53,17 @@ public class StatsController : MonoBehaviour
         {
             growInterpolate();
         }
-        threatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
-        UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" +threatLevel.ToString();
+        totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
+        UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" +totalThreatLevel.ToString();
+        if(threatCount > 0)
+        {
+            EnterDangerState();
+        }
+        else
+        {
+            EnterHiddenState();
+        }
+        
     }
     void OnTriggerEnter(Collider otherCollider)
     {
@@ -140,12 +150,16 @@ public class StatsController : MonoBehaviour
     {
         growingState = GrowingState.growing;
         playerStats.AddStats(Stats.Type.Size, amount);
+        UIController.sizeText.text = "Size:" + playerStats.size.ToString();
+        startInterpolatedGrowth();
+    }
+
+    private void startInterpolatedGrowth()
+    {
         startingScale = transform.localScale;
         transitionStartTime = Time.time;
-        UIController.sizeText.text = "Size:" + playerStats.size.ToString();
         float scaleFromSize = 1 + (float)(playerStats.size) / 40f;
         targetScale = new Vector3(scaleFromSize, scaleFromSize, scaleFromSize);
-        transform.gameObject.AddComponent<Bird>();
     }
 
     private void growInterpolate()
@@ -167,8 +181,8 @@ public class StatsController : MonoBehaviour
         startingColor = currentColor;
         endingColor = newColor;
         timeColorProgressInterpolation = 0f;
-       
-        while(timeColorProgressInterpolation <  colorChangingTime)
+
+        while (timeColorProgressInterpolation < colorChangingTime && coroutinesRunning <= 1)
         {
             timeColorProgressInterpolation += Time.deltaTime;
              colorChangeInterpolate();
