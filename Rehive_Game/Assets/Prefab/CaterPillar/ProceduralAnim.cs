@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ProceduralAnim : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ProceduralAnim : MonoBehaviour
     bool moving;
     float curSpeed;
     float distance;
+    float animationtimer;
     Transform curBodyPart;
     Transform prevBodyPart;
     Vector3 playerOldPos;
@@ -26,10 +28,12 @@ public class ProceduralAnim : MonoBehaviour
     {
         playerOldPos = player.transform.position;
         minMovingDistance = 0.0001f;
+        animationtimer = 5;
     }
 
     void Update()
     {
+        animationtimer -= Time.deltaTime;
         Move();
         Animation();
         WaveMotion();
@@ -37,10 +41,12 @@ public class ProceduralAnim : MonoBehaviour
 
     public void Move()
     {
-        if (Vector3.Distance(playerOldPos,player.transform.position) > minMovingDistance)
+        //if (Vector3.Distance(playerOldPos,player.transform.position) > minMovingDistance)
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             curSpeed = speed;
             moving = true;
+            animationtimer = 5;
         }
         else
         {
@@ -74,6 +80,15 @@ public class ProceduralAnim : MonoBehaviour
 
                 Animator anim = BodyParts[i].gameObject.GetComponent<Animator>();
                 anim.SetInteger("i", i);
+            }
+        }
+        
+        else if (animationtimer <= 0)
+        {
+            for (int i = 1; i < BodyParts.Count; i++)
+            {
+                Animator idle = BodyParts[i].gameObject.GetComponent<Animator>();
+                idle.SetInteger("i", -i);
             }
         }
     }
