@@ -40,7 +40,7 @@ public class Climb : MonoBehaviour
         Vector3 origin = transform.position;
         Vector3 dir = transform.right;
         RaycastHit hit;
-        Debug.DrawRay(origin, dir, Color.green);
+        //Debug.DrawRay(origin, dir, Color.green);
         if(Physics.Raycast(origin,dir, out hit, 10))
         {
             helper.position = PosWithOffset(origin, hit.point);
@@ -123,7 +123,7 @@ public class Climb : MonoBehaviour
         Vector3 origin = transform.position;
         float dis = positionOffset;
         Vector3 dir = moveDir;
-        Debug.DrawRay(origin, dir * dis, Color.red);
+        //Debug.DrawRay(origin, dir * dis, Color.red);
         RaycastHit hit;
 
         if (Physics.Raycast(origin, dir, out hit, dis))
@@ -135,7 +135,7 @@ public class Climb : MonoBehaviour
         dir = helper.forward;
         float dis2 = 0.5f;
 
-        Debug.DrawRay(origin, dir * dis2, Color.blue);
+        //Debug.DrawRay(origin, dir * dis2, Color.blue);
         if (Physics.Raycast(origin, dir, out hit, dis))
         {
             helper.position = PosWithOffset(origin, hit.point);
@@ -146,7 +146,7 @@ public class Climb : MonoBehaviour
         origin += dir * dis2;
         dir = -Vector3.up;
 
-        Debug.DrawRay(origin, dir, Color.yellow);
+        //Debug.DrawRay(origin, dir, Color.yellow);
         if (Physics.Raycast(origin, dir, out hit, dis2))
         {
             float angle = Vector3.Angle(helper.up, hit.normal);

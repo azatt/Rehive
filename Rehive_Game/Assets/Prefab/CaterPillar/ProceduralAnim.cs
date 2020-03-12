@@ -9,15 +9,24 @@ public class ProceduralAnim : MonoBehaviour
     public float minDistance;
     public float speed;
     public float rotationspeed;
+    public GameObject player;
+    public float minMovingDistance;
 
     bool moving;
     float curSpeed;
     float distance;
     Transform curBodyPart;
     Transform prevBodyPart;
+    Vector3 playerOldPos;
 
     private float xPos, timer;
     public float animSpeed, frequency, amplitude, contractDelay;
+
+    private void Start()
+    {
+        playerOldPos = player.transform.position;
+        minMovingDistance = 0.0001f;
+    }
 
     void Update()
     {
@@ -28,16 +37,10 @@ public class ProceduralAnim : MonoBehaviour
 
     public void Move()
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if (Vector3.Distance(playerOldPos,player.transform.position) > minMovingDistance)
         {
             curSpeed = speed;
             moving = true;
-
-            //BodyParts[0].Translate(-BodyParts[0].up * curSpeed * Time.smoothDeltaTime, Space.World);
-            /*
-            if (Input.GetAxis("Horizontal") != 0)
-                BodyParts[0].Rotate(Vector3.left * rotationspeed * Time.deltaTime * Input.GetAxis("Horizontal"));
-                */
         }
         else
         {
@@ -48,7 +51,7 @@ public class ProceduralAnim : MonoBehaviour
                 anim.SetInteger("i", 0);
             }
         }
-        moving = true;
+        playerOldPos = player.transform.position;
     }
 
     public void Animation()
@@ -81,7 +84,7 @@ public class ProceduralAnim : MonoBehaviour
         {
             timer += Time.smoothDeltaTime;
 
-            for (int i = 1; i < BodyParts.Count; i++)
+            for (int i = 3; i < BodyParts.Count; i++)
             {
                 float w = frequency * 2 * Mathf.PI;
                 float y = amplitude * Mathf.Cos(w * (timer - (i / animSpeed) * contractDelay));
