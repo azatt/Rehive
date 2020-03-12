@@ -8,12 +8,13 @@ public class StatsController : MonoBehaviour
     // Start is called before the first frame update
     Stats playerStats;
     [SerializeField] float transitionStartTime;
-    [SerializeField] float growingTime, colorChangingTime;
+    [SerializeField] float growingTime = 2 ;
+    [SerializeField] float colorChangingTime = 2;
     [SerializeField] Vector3 startingScale;
     [SerializeField] Vector3 targetScale;
     [SerializeField] GameObject body;
     [SerializeField] Color[] colors;
-    [SerializeField] Material material;
+    [SerializeField] Material[] materials;
     
     public float totalThreatLevel;
     public int threatCount;
@@ -39,11 +40,20 @@ public class StatsController : MonoBehaviour
 
         movementController = GetComponent<Climb>();
         UIController = FindObjectOfType<UIController>();
-        body = transform.Find("CaterPillarBody").gameObject;
-        material = body.GetComponent<Renderer>().material;
+        materials = body.GetComponent<SkinnedMeshRenderer>().sharedMaterials;
         currentColor = colors[0];
-        material.SetColor("_myColor", currentColor);
+        SetColorOfMaterials();
+        
 
+    }
+
+    private void SetColorOfMaterials()
+    {
+        foreach (Material material in materials)
+        {
+            material.SetColor("_CamoColor", currentColor);
+
+        }
     }
 
     // Update is called once per frame
@@ -80,6 +90,7 @@ public class StatsController : MonoBehaviour
                 break;
             case PowerUp.Tag.Camo:
                 AddToCamo(10);
+                print("camo");
                 Destroy(otherCollider.gameObject);
                 break;
             case PowerUp.Tag.SafeZone:
@@ -159,7 +170,7 @@ public class StatsController : MonoBehaviour
     {
         startingScale = transform.localScale;
         transitionStartTime = Time.time;
-        float scaleFromSize = 0.1f + (float)(playerStats.size) / 40f;
+        float scaleFromSize = 1 + (float)(playerStats.size) / 40f;
         targetScale = new Vector3(scaleFromSize, scaleFromSize, scaleFromSize);
     }
 
@@ -205,7 +216,7 @@ public class StatsController : MonoBehaviour
 
         // Check if the fall is finished
         currentColor = color;
-        material.SetColor("_myColor", currentColor);
+        SetColorOfMaterials();
    }
 
     private void growthComplete()

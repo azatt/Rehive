@@ -3567,17 +3567,17 @@ PrefabInstance:
     - target: {fileID: 7551451817447366742, guid: 0832a7b6cc78fff40b335d57f43fdea9,
         type: 3}
       propertyPath: colors.Array.data[1].r
-      value: 0.8018868
+      value: 0.068752214
       objectReference: {fileID: 0}
     - target: {fileID: 7551451817447366742, guid: 0832a7b6cc78fff40b335d57f43fdea9,
         type: 3}
       propertyPath: colors.Array.data[1].g
-      value: 0.79858285
+      value: 0.6203685
       objectReference: {fileID: 0}
     - target: {fileID: 7551451817447366742, guid: 0832a7b6cc78fff40b335d57f43fdea9,
         type: 3}
       propertyPath: colors.Array.data[1].b
-      value: 0.2912513
+      value: 0.9716981
       objectReference: {fileID: 0}
     - target: {fileID: 7551451817447366742, guid: 0832a7b6cc78fff40b335d57f43fdea9,
         type: 3}
