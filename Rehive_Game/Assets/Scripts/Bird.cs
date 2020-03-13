@@ -14,6 +14,10 @@ public class Bird : MonoBehaviour
     public enum ViewState { inView, notInView}
     public ViewState viewOnPlayer = ViewState.notInView;
     private float distance;
+    public int viewInstancesAmount = 10;
+    public float DurationCheckViewState = 2f;
+    public float DurationCheckViewInstance = 0.1f;
+    public int viewInstanceThreshold = 8;
 
     void Start()
     {
@@ -30,7 +34,7 @@ public class Bird : MonoBehaviour
         {
 
             CheckListForThresHold();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(DurationCheckViewState);
         }
     }
 
@@ -46,7 +50,7 @@ public class Bird : MonoBehaviour
             }
             
         }
-        if(sum >= 4)
+        if(sum >= viewInstanceThreshold)
         {
             if (viewOnPlayer == ViewState.notInView)
             {
@@ -70,7 +74,7 @@ public class Bird : MonoBehaviour
         while (true)
         {
             AddListIfPlayerInView();
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(DurationCheckViewInstance);
         }
 
     }
@@ -93,7 +97,7 @@ public class Bird : MonoBehaviour
         }
         intersection = hit.transform.gameObject;
        
-        if(inViewAccountant.Count > 10)
+        if(inViewAccountant.Count > viewInstancesAmount)
         {
             inViewAccountant.RemoveAt(0);
         }
