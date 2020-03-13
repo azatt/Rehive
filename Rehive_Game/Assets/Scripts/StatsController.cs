@@ -44,6 +44,7 @@ public class StatsController : MonoBehaviour
         currentColor = colors[0];
         SetColorOfMaterials();
         
+        StartCoroutine(CheckDangerState());
 
     }
 
@@ -64,17 +65,29 @@ public class StatsController : MonoBehaviour
             growInterpolate();
         }
         totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
-        UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" +totalThreatLevel.ToString();
-        if(threatCount > 0)
-        {
-            EnterDangerState();
-        }
-        else
-        {
-            EnterHiddenState();
-        }
-        
+        UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" + totalThreatLevel.ToString();
+
+
     }
+
+    private IEnumerator CheckDangerState()
+    {
+        while (true)
+        {
+
+            if (threatCount > 0)
+            {
+                EnterDangerState();
+            }
+            else
+            {
+                EnterHiddenState();
+            }
+            yield return new WaitForSeconds(0.1f);
+            
+        }
+    }
+
     void OnTriggerEnter(Collider otherCollider)
     {
 
@@ -122,8 +135,16 @@ public class StatsController : MonoBehaviour
     public void EnterHiddenState()
     {
         dangerState = DangerState.hidden;
+        try
+        {
+
         UIController.dangerText.text = "You are hidden!";
         //UIController.threatLevel.text = "ThreatLevel:0";
+        }
+        catch
+        {
+
+        }
     }
 
 
