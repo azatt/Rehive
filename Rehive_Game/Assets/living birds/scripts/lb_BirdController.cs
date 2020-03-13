@@ -266,11 +266,15 @@ public class lb_BirdController : MonoBehaviour {
 
 
             //
+            if(GameObject.Find("Player") != null)
+            {
             bird.AddComponent<Bird>();
             GameObject player = GameObject.Find("Player");
             bird.GetComponent<Bird>().player = player;
+            }
 
             //
+
 			if(bird.transform.position == Vector3.zero){
 				//couldnt find a suitable spawn point
 				return;
