@@ -1122,7 +1122,7 @@ PrefabInstance:
     - target: {fileID: 5868907481087860348, guid: 0acb2d900373afa448de88eae737768e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 120.7931
+      value: 120.776
       objectReference: {fileID: 0}
     - target: {fileID: 5868907481087860348, guid: 0acb2d900373afa448de88eae737768e,
         type: 3}
@@ -6937,7 +6937,6 @@ MonoBehaviour:
   coroutinesRunning: 0
   initialScale: 0
   collObj: {fileID: 0}
-  animationn: {fileID: 0}
   scalingSpeed: 10
 --- !u!135 &1210117778
 SphereCollider:
