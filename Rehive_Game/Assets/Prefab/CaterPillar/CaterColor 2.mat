@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Material.002
+  m_Name: CaterColor 2
   m_Shader: {fileID: -6465566751694194690, guid: 1deb88b1d8b3c584eb6cc722da10b7f3,
     type: 3}
   m_ShaderKeywords: 
