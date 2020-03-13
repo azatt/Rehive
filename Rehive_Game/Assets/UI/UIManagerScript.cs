@@ -46,6 +46,6 @@ public class UIManagerScript : MonoBehaviour
         OptionsButton.DOScale(0.7f, 0.8f).SetDelay(growDelay);
         GameTitle.DOScale(0.7f, 0.8f).SetDelay(growDelay);
         canvasGroup.DOFade(0, 0.8f).SetDelay(growDelay);
-        SceneManager.LoadScene(sceneName: "PauseMenu");
+        SceneManager.LoadScene(sceneName: "FinalScene");
     }
 }

@@ -20,6 +20,7 @@ public class ProceduralAnim : MonoBehaviour
     Transform curBodyPart;
     Transform prevBodyPart;
     Vector3 playerOldPos;
+    Vector3 playerOldScale;
 
     private float xPos, timer;
     public float animSpeed, frequency, amplitude, contractDelay;
@@ -27,6 +28,7 @@ public class ProceduralAnim : MonoBehaviour
     private void Start()
     {
         playerOldPos = player.transform.position;
+        playerOldScale = player.transform.localScale;
         minMovingDistance = 0.0001f;
         animationtimer = 5;
     }
@@ -37,6 +39,12 @@ public class ProceduralAnim : MonoBehaviour
         Move();
         Animation();
         WaveMotion();
+
+        if(playerOldScale != player.transform.localScale)
+        {
+            transform.localScale = transform.localScale * (player.transform.localScale.magnitude / playerOldScale.magnitude);
+        }
+        playerOldScale = player.transform.localScale;
     }
 
     public void Move()

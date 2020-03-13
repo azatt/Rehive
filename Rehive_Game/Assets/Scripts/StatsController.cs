@@ -100,7 +100,7 @@ public class StatsController : MonoBehaviour
                 Destroy(otherCollider.gameObject);
                 break;
             case PowerUp.Tag.Size:
-                AddToSize(4);
+                AddToSize(40);
                 Destroy(otherCollider.gameObject);
                 break;
             case PowerUp.Tag.Camo:
