@@ -7,15 +7,15 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SpeedPU
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Name: CaterColor 8
+  m_Shader: {fileID: -6465566751694194690, guid: 1deb88b1d8b3c584eb6cc722da10b7f3,
+    type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -48,10 +48,15 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _diffuse:
+        m_Texture: {fileID: 2800000, guid: d5486437272f54d49bdfba9f6a4e5de4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
+    - _CamoWeight: 0.7
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
@@ -59,6 +64,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _InitialColorWeight: 0.3
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
@@ -70,12 +76,15 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _hue: 1
     m_Colors:
-    - _BaseColor: {r: 0.07058823, g: 0.68104607, b: 1, a: 1}
-    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _BaseColor: {r: 0.9734455, g: 0.74540436, b: 0.08650047, a: 1}
+    - _CamoColor: {r: 0.8732246, g: 1, b: 0, a: 0}
+    - _Color: {r: 0.9734455, g: 0.74540436, b: 0.08650047, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _InitialColor: {r: 0.53498614, g: 1, b: 0.18431371, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
---- !u!114 &5514901129824350439
+--- !u!114 &3315784122782147282
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

@@ -8,13 +8,16 @@ public class StatsController : MonoBehaviour
     // Start is called before the first frame update
     Stats playerStats;
     [SerializeField] float transitionStartTime;
-    [SerializeField] float growingTime;
+    [SerializeField] float growingTime = 2 ;
+    [SerializeField] float colorChangingTime = 2;
     [SerializeField] Vector3 startingScale;
     [SerializeField] Vector3 targetScale;
     [SerializeField] GameObject body;
+    [SerializeField] Color[] colors;
     [SerializeField] Material[] materials;
     
-    public float threatLevel;
+    public float totalThreatLevel;
+    public int threatCount;
     public enum GrowingState { growing, stagnating }
     public enum DangerState { hidden, safeZone, danger, waitingForUpdate }
 
@@ -22,6 +25,13 @@ public class StatsController : MonoBehaviour
     public DangerState dangerState;
     private Climb movementController;
     public UIController UIController;
+    private Color endingColor;
+    public float timeColorProgressInterpolation;
+    private Color startingColor;
+    public Color currentColor;
+    public int currentColorIndex;
+    public int coroutinesRunning;
+    public float initialScale;
 
     void Start()
     {
@@ -31,19 +41,55 @@ public class StatsController : MonoBehaviour
 
         movementController = GetComponent<Climb>();
         UIController = FindObjectOfType<UIController>();
-        //body = transform.Find("CaterPillarBody").gameObject;
+        materials = body.GetComponent<SkinnedMeshRenderer>().sharedMaterials;
+        currentColor = colors[0];
+        SetColorOfMaterials();
+        
+        StartCoroutine(CheckDangerState());
+        initialScale = body.transform.parent.localScale.x;
 
+    }
+
+    private void SetColorOfMaterials()
+    {
+        foreach (Material material in materials)
+        {
+            material.SetColor("_CamoColor", currentColor);
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //print(playerStats.size);
         if (growingState == GrowingState.growing)
         {
             growInterpolate();
         }
+        totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
+        UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" + totalThreatLevel.ToString();
+
+
     }
+
+    private IEnumerator CheckDangerState()
+    {
+        while (true)
+        {
+
+            if (threatCount > 0)
+            {
+                EnterDangerState();
+            }
+            else
+            {
+                EnterHiddenState();
+            }
+            yield return new WaitForSeconds(0.1f);
+            
+        }
+    }
+
     void OnTriggerEnter(Collider otherCollider)
     {
 
@@ -59,6 +105,7 @@ public class StatsController : MonoBehaviour
                 break;
             case PowerUp.Tag.Camo:
                 AddToCamo(10);
+                print("camo");
                 Destroy(otherCollider.gameObject);
                 break;
             case PowerUp.Tag.SafeZone:
@@ -90,8 +137,16 @@ public class StatsController : MonoBehaviour
     public void EnterHiddenState()
     {
         dangerState = DangerState.hidden;
+        try
+        {
+
         UIController.dangerText.text = "You are hidden!";
-        UIController.threatLevel.text = "ThreatLevel:0";
+        //UIController.threatLevel.text = "ThreatLevel:0";
+        }
+        catch
+        {
+
+        }
     }
 
 
@@ -108,12 +163,18 @@ public class StatsController : MonoBehaviour
         playerStats.AddStats(Stats.Type.Camo, amount);
         UIController.camoText.text = "Camo:" + playerStats.camo.ToString();
         int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 4);
-       // body.GetComponent<Renderer>().enabled = true;
-       // body.GetComponent<Renderer>().sharedMaterial = materials[colorIndex];
+
+        if(colorIndex > currentColorIndex)
+        {
+            print("change");
+            StartCoroutine(startInterpolatedColor(colors[colorIndex]));
+        }
+        currentColorIndex = colorIndex;
     }
 
     private void AddToSpeed(int amount)
     {
+
         playerStats.AddStats(Stats.Type.Speed, amount);
         UIController.speedText.text = "Speed:" + playerStats.speed.ToString();
         //movementController.climbSpeed = movementController.initialSpeed + playerStats.speed / 10;
@@ -124,10 +185,15 @@ public class StatsController : MonoBehaviour
     {
         growingState = GrowingState.growing;
         playerStats.AddStats(Stats.Type.Size, amount);
-        startingScale = transform.localScale;
-        transitionStartTime = Time.time;
         UIController.sizeText.text = "Size:" + playerStats.size.ToString();
-        float scaleFromSize = 0.1f + (float)(playerStats.size) / 40f;
+        startInterpolatedGrowth();
+    }
+
+    private void startInterpolatedGrowth()
+    {
+        startingScale = body.transform.parent.localScale;
+        transitionStartTime = Time.time;
+        float scaleFromSize = initialScale + (float)(playerStats.size) / 40f * initialScale;
         targetScale = new Vector3(scaleFromSize, scaleFromSize, scaleFromSize);
     }
 
@@ -135,14 +201,46 @@ public class StatsController : MonoBehaviour
     {
         float fractionOfTransition = (Time.time - transitionStartTime) / growingTime;
 
-        transform.localScale = Vector3.Lerp(
+        body.transform.parent.localScale = Vector3.Lerp(
             startingScale,
             targetScale,
             fractionOfTransition);
 
         // Check if the fall is finished
-        if (fractionOfTransition >= 1) growthComplete();            //wanneer t karakter klaar is met vallen gaat deze naar 'ReachedFallDestination()'
     }
+    IEnumerator startInterpolatedColor(Color newColor)
+    {
+
+        coroutinesRunning++;
+        print("colorchange");
+        startingColor = currentColor;
+        endingColor = newColor;
+        timeColorProgressInterpolation = 0f;
+
+        while (timeColorProgressInterpolation < colorChangingTime && coroutinesRunning <= 1)
+        {
+            timeColorProgressInterpolation += Time.deltaTime;
+             colorChangeInterpolate();
+
+            yield return 0;
+        }
+
+        coroutinesRunning--;
+    }
+
+   private void colorChangeInterpolate()
+   {
+       float fractionOfTransition = timeColorProgressInterpolation / colorChangingTime;
+
+       Color color = Color.Lerp(
+           startingColor,
+           endingColor,
+           fractionOfTransition);
+
+        // Check if the fall is finished
+        currentColor = color;
+        SetColorOfMaterials();
+   }
 
     private void growthComplete()
     {
