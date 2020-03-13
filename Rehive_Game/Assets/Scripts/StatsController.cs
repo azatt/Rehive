@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class StatsController : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class StatsController : MonoBehaviour
     [SerializeField] float colorChangingTime = 2;
     [SerializeField] Vector3 startingScale;
     [SerializeField] Vector3 targetScale;
-    [SerializeField] GameObject body;
+    [SerializeField] GameObject camoBody;
+    [SerializeField] GameObject scalingBody;
     [SerializeField] Color[] colors;
     [SerializeField] Material[] materials;
     
@@ -32,6 +34,8 @@ public class StatsController : MonoBehaviour
     public int currentColorIndex;
     public int coroutinesRunning;
     public float initialScale;
+    public GameObject collObj;
+    public float scalingSpeed = 40;
 
     void Start()
     {
@@ -41,12 +45,12 @@ public class StatsController : MonoBehaviour
 
         movementController = GetComponent<Climb>();
         UIController = FindObjectOfType<UIController>();
-        materials = body.GetComponent<SkinnedMeshRenderer>().sharedMaterials;
+        materials = camoBody.GetComponent<SkinnedMeshRenderer>().sharedMaterials;
         currentColor = colors[0];
         SetColorOfMaterials();
         
         StartCoroutine(CheckDangerState());
-        initialScale = body.transform.parent.localScale.x;
+        initialScale = scalingBody.transform.localScale.x;
 
     }
 
@@ -97,21 +101,27 @@ public class StatsController : MonoBehaviour
         {
             case PowerUp.Tag.Speed:
                 AddToSpeed(10);
-                Destroy(otherCollider.gameObject);
+                StartCoroutine(EatLeaf(otherCollider.gameObject));
                 break;
             case PowerUp.Tag.Size:
-                AddToSize(4);
-                Destroy(otherCollider.gameObject);
+                AddToSize(10);
+                StartCoroutine(EatLeaf(otherCollider.gameObject));
                 break;
             case PowerUp.Tag.Camo:
                 AddToCamo(10);
-                print("camo");
-                Destroy(otherCollider.gameObject);
+                StartCoroutine(EatLeaf(otherCollider.gameObject));
                 break;
             case PowerUp.Tag.SafeZone:
                 EnterSafeZoneState();
                 break;
         }
+    }
+
+    private IEnumerator EatLeaf(GameObject gameObject)
+    {
+        gameObject.transform.parent.parent.GetComponent<PlayableDirector>().Play();
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
     void OnTriggerExit(Collider otherCollider)
@@ -166,7 +176,6 @@ public class StatsController : MonoBehaviour
 
         if(colorIndex > currentColorIndex)
         {
-            print("change");
             StartCoroutine(startInterpolatedColor(colors[colorIndex]));
         }
         currentColorIndex = colorIndex;
@@ -183,6 +192,7 @@ public class StatsController : MonoBehaviour
 
     private void AddToSize(int amount)
     {
+        
         growingState = GrowingState.growing;
         playerStats.AddStats(Stats.Type.Size, amount);
         UIController.sizeText.text = "Size:" + playerStats.size.ToString();
@@ -191,9 +201,9 @@ public class StatsController : MonoBehaviour
 
     private void startInterpolatedGrowth()
     {
-        startingScale = body.transform.parent.localScale;
+        startingScale = scalingBody.transform.localScale;
         transitionStartTime = Time.time;
-        float scaleFromSize = initialScale + (float)(playerStats.size) / 40f * initialScale;
+        float scaleFromSize = initialScale + (float)(playerStats.size) / scalingSpeed * initialScale;
         targetScale = new Vector3(scaleFromSize, scaleFromSize, scaleFromSize);
     }
 
@@ -201,7 +211,7 @@ public class StatsController : MonoBehaviour
     {
         float fractionOfTransition = (Time.time - transitionStartTime) / growingTime;
 
-        body.transform.parent.localScale = Vector3.Lerp(
+        scalingBody.transform.localScale = Vector3.Lerp(
             startingScale,
             targetScale,
             fractionOfTransition);
@@ -212,7 +222,6 @@ public class StatsController : MonoBehaviour
     {
 
         coroutinesRunning++;
-        print("colorchange");
         startingColor = currentColor;
         endingColor = newColor;
         timeColorProgressInterpolation = 0f;

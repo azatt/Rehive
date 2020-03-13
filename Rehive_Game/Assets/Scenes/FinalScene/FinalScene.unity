@@ -2219,8 +2219,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1210117771}
+  statusPlayer: {fileID: 0}
   threatLevel: 0
   intersection: {fileID: 0}
+  inViewAccountant: 
+  viewOnPlayer: 1
+  viewInstancesAmount: 10
+  DurationCheckViewState: 2
+  DurationCheckViewInstance: 0.1
+  viewInstanceThreshold: 5
 --- !u!65 &314366739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7044,9 +7051,9 @@ GameObject:
   - component: {fileID: 1210117774}
   - component: {fileID: 1210117773}
   - component: {fileID: 1210117776}
-  - component: {fileID: 1210117777}
   - component: {fileID: 1210117772}
   - component: {fileID: 1210117778}
+  - component: {fileID: 1210117777}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7162,23 +7169,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 1210117771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 157aceb8c0b0c6148920c49dc97b8775, type: 3}
+  m_Script: {fileID: 11500000, guid: e50f50923d7d73b44a0d99e771c5603e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   transitionStartTime: 0
-  growingTime: 1
+  growingTime: 2
+  colorChangingTime: 8
   startingScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 0, y: 0, z: 0}
-  body: {fileID: 1210117771}
+  body: {fileID: 0}
+  colors:
+  - {r: 0.047970813, g: 0.9245283, b: 0.15978962, a: 0}
+  - {r: 0.9245283, g: 0.12646852, b: 0.88609636, a: 0}
+  - {r: 0.8732246, g: 1, b: 0, a: 0}
+  - {r: 0.054901943, g: 0.8980392, b: 0.81403816, a: 0}
+  - {r: 0.8962264, g: 0.097232126, b: 0.2555484, a: 0}
   materials:
-  - {fileID: 2100000, guid: 8a291a08297e3154f8c86d1cc37bbe3b, type: 2}
-  - {fileID: 2100000, guid: 0fa2b34db3eecf14f901c1d08edf91c4, type: 2}
-  - {fileID: 2100000, guid: aa38c89105eaf7c41b404663bb79dabd, type: 2}
-  - {fileID: 2100000, guid: 0764f55862bec0245817adb878f956f1, type: 2}
-  - {fileID: 2100000, guid: 14671bea144032b4d9bcc5e6cb2eaf9a, type: 2}
-  threatLevel: 0
+  - {fileID: 2100000, guid: 03155d6fe135b6549bacad3f80a56f18, type: 2}
+  - {fileID: 2100000, guid: 1250c174836ea324a8187e7f9f7ff3b4, type: 2}
+  - {fileID: 2100000, guid: 3f2a7675ef3c3d34e8279f5422973986, type: 2}
+  - {fileID: 2100000, guid: 6cef348aa92b43a419423c1d4fe6178c, type: 2}
+  - {fileID: 2100000, guid: 0f5bb07f6da7bc642899e15bb9b4675d, type: 2}
+  - {fileID: 2100000, guid: c900f51fe97645744bd48a87f9a401b2, type: 2}
+  - {fileID: 2100000, guid: 3522781e5c8c22b439e3a6db12c25880, type: 2}
+  - {fileID: 2100000, guid: 7799f379382c2e14e9d90563b80e8fa1, type: 2}
+  - {fileID: 2100000, guid: 680dc5166190b4140893a1c384835c75, type: 2}
+  totalThreatLevel: 0
+  threatCount: 0
   dangerState: 0
-  UIController: {fileID: 1417780251}
+  UIController: {fileID: 0}
+  timeColorProgressInterpolation: 0
+  currentColor: {r: 1, g: 1, b: 1, a: 0}
+  currentColorIndex: 0
+  coroutinesRunning: 0
+  initialScale: 0
 --- !u!135 &1210117778
 SphereCollider:
   m_ObjectHideFlags: 0
