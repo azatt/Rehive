@@ -19,6 +19,7 @@ public class StatsController : MonoBehaviour
     [SerializeField] Material[] materials;
     
     public float totalThreatLevel;
+    public static float globalThreatLevel;
     public int threatCount;
     public enum GrowingState { growing, stagnating }
     public enum DangerState { hidden, safeZone, danger, waitingForUpdate }
@@ -72,8 +73,7 @@ public class StatsController : MonoBehaviour
         }
         totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
         UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" + totalThreatLevel.ToString();
-
-
+        globalThreatLevel = totalThreatLevel;
     }
 
     private IEnumerator CheckDangerState()
