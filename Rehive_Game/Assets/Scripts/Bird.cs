@@ -17,7 +17,7 @@ public class Bird : MonoBehaviour
     public int viewInstancesAmount = 10;
     public float DurationCheckViewState = 2f;
     public float DurationCheckViewInstance = 0.1f;
-    public int viewInstanceThreshold = 8;
+    public int viewInstanceThreshold = 5;
 
     void Start()
     {
@@ -55,7 +55,6 @@ public class Bird : MonoBehaviour
             if (viewOnPlayer == ViewState.notInView)
             {
                 statusPlayer.threatCount++;
-                print("threat");
                 viewOnPlayer = ViewState.inView;
             }
         }
