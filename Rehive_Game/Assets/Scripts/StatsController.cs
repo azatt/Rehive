@@ -45,7 +45,7 @@ public class StatsController : MonoBehaviour
 
         movementController = GetComponent<Climb>();
         UIController = FindObjectOfType<UIController>();
-        materials = camoBody.GetComponent<SkinnedMeshRenderer>().sharedMaterials;
+        materials = camoBody.GetComponent<SkinnedMeshRenderer>().materials;
         currentColor = colors[0];
         SetColorOfMaterials();
         

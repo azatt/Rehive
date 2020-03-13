@@ -71,7 +71,7 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _CamoWeight: 0.7
+    - _CamoWeight: 0.5
     - _Cull: 2
     - _Cutoff: 0.5
     - _DstBlend: 0
@@ -79,7 +79,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _InitialColorWeight: 0.3
+    - _InitialColorWeight: 0.5
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
@@ -95,9 +95,9 @@ Material:
     m_Colors:
     - Color_1B5D85D0: {r: 0.9137255, g: 0.017187973, b: 0, a: 0}
     - _BaseColor: {r: 0.9734455, g: 0.74540436, b: 0.08650047, a: 1}
-    - _CamoColor: {r: 0.40201885, g: 0.6021861, b: 0.45315027, a: 0}
+    - _CamoColor: {r: 0.8732246, g: 1, b: 0, a: 0}
     - _Color: {r: 0.9734455, g: 0.74540436, b: 0.08650047, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _InitialColor: {r: 1, g: 0.18431371, b: 0.9213777, a: 0}
+    - _InitialColor: {r: 1, g: 0.8784314, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _myColor: {r: 0.09430221, g: 0.9622642, b: 0.004538993, a: 0}
