@@ -104,13 +104,8 @@ public class StatsController : MonoBehaviour
                 StartCoroutine(EatLeaf(otherCollider.gameObject));
                 break;
             case PowerUp.Tag.Size:
-<<<<<<< HEAD
-                AddToSize(4);
-                Destroy(otherCollider.gameObject);
-=======
                 AddToSize(10);
                 StartCoroutine(EatLeaf(otherCollider.gameObject));
->>>>>>> 3bd9eee364bb46e45ae2bd9873b3743361c956f0
                 break;
             case PowerUp.Tag.Camo:
                 AddToCamo(10);
