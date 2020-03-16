@@ -18,7 +18,7 @@ public class Bird : MonoBehaviour
     public int viewInstancesAmount = 10;
     public float DurationCheckViewState = 1f;
     public float DurationCheckViewInstance = 0.1f;
-    public int viewInstanceThreshold = 5;
+    public int viewInstanceThreshold = 4;
 
     void Start()
     {
@@ -87,7 +87,7 @@ public class Bird : MonoBehaviour
         Debug.DrawRay(transform.position, directionToPlayer);
         Physics.Raycast(rayToPlayer, out hit);
         distance = directionToPlayer.magnitude;
-        if (hit.transform == player.transform)
+        if (hit.transform.tag == "player")
         {
             inViewAccountant.Add(true);
         }

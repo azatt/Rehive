@@ -72,7 +72,7 @@ public class StatsController : MonoBehaviour
         {
             growInterpolate();
         }
-        //totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
+        totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
         UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" + totalThreatLevel.ToString();
         globalThreatLevel = totalThreatLevel;
     }
