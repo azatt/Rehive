@@ -24,11 +24,14 @@ public class Climb : MonoBehaviour
     public bool IsOk = false;
 
     Transform helper;
+    private Transform followMeHelper;
+    public Transform followMe;
 
     // Creates a helper to "save" the transform during the frame and starts the start position search
     public void Start()
     {
         helper = new GameObject().transform;
+        followMeHelper = new GameObject().transform;
         helper.name = "climb helper";
 
         CheckForClimb();
@@ -85,17 +88,12 @@ public class Climb : MonoBehaviour
         {
             float hor = Input.GetAxis("Horizontal");
             float vert = Input.GetAxis("Vertical");
-            transform.Rotate(new Vector3(0, 0, 1), -hor);
             float m = Mathf.Abs(hor) + Mathf.Abs(vert);
 
-            //Vector3 h = helper.right * hor;
+            Vector3 h = helper.right * hor;
             Vector3 v = helper.up * vert;
+            Vector3 moveDir = (h + v).normalized;
 
-            //Vector3 moveDir = (h + v).normalized;
-            //Vector3 moveDir =  v.normalized;
-            Vector3 moveDir = (transform.up * vert).normalized;
-
-            print(moveDir);
             bool canMove = CanMove(moveDir);
             if (!canMove || moveDir == Vector3.zero)
             {
@@ -120,6 +118,7 @@ public class Climb : MonoBehaviour
             Vector3 cp = Vector3.Lerp(startPos, targetPos, posT);
             transform.position = cp;
             transform.rotation = Quaternion.Slerp(transform.rotation, helper.rotation, delta * rotateSpeed);
+            followMe.transform.rotation = Quaternion.Slerp(followMe.transform.rotation,followMeHelper.transform.rotation, delta * rotateSpeed);
         }
     }
 
@@ -140,19 +139,19 @@ public class Climb : MonoBehaviour
         dir = helper.forward;
         float dis2 = 0.5f;
 
-        Debug.DrawRay(origin, dir * dis2, Color.blue);
+        //Debug.DrawRay(origin, dir * dis2, Color.blue);
         if (Physics.Raycast(origin, dir, out hit, dis))
         {
             helper.position = PosWithOffset(origin, hit.point);
-            helper.rotation = Quaternion.LookRotation(-hit.normal, moveDir);
-            print(helper.rotation);
+            helper.rotation = Quaternion.LookRotation(-hit.normal) ; //, moveDir);
+            followMeHelper.rotation = Quaternion.LookRotation(-hit.normal, moveDir) * Quaternion.Euler(180, -90, 0 );
             return true;
         }
+
         origin += dir * dis2;
         dir = -Vector3.up;
 
-        Debug.DrawRay(origin, dir, Color.yellow);
-
+        //Debug.DrawRay(origin, dir, Color.yellow);
         if (Physics.Raycast(origin, dir, out hit, dis2))
         {
             float angle = Vector3.Angle(helper.up, hit.normal);
@@ -160,6 +159,8 @@ public class Climb : MonoBehaviour
             {
                 helper.position = PosWithOffset(origin, hit.point);
                 helper.rotation = Quaternion.LookRotation(-hit.normal);
+                followMeHelper.rotation = Quaternion.LookRotation(-hit.normal);
+
                 return true;
             }
         }
@@ -182,6 +183,7 @@ public class Climb : MonoBehaviour
         Vector3 tp = Vector3.Lerp(startPos, targetPos, posT);
         transform.position = tp;
         transform.rotation = Quaternion.Slerp(transform.rotation, helper.rotation, delta * rotateSpeed);
+        followMe.transform.rotation = Quaternion.Slerp(followMe.transform.rotation,followMe.transform.rotation, delta * rotateSpeed);
     }
 
     // Finds the position with the offset

@@ -1,0 +1,21 @@
+diff a/Rehive_Game/Assets/Scripts/Climb.cs b/Rehive_Game/Assets/Scripts/Climb.cs	(rejected hunks)
+@@ -85,12 +85,17 @@
+         {
+             float hor = Input.GetAxis("Horizontal");
+             float vert = Input.GetAxis("Vertical");
++            transform.Rotate(new Vector3(0, 0, 1), -hor);
+             float m = Mathf.Abs(hor) + Mathf.Abs(vert);
+ 
+-            Vector3 h = helper.right * hor;
++            //Vector3 h = helper.right * hor;
+             Vector3 v = helper.up * vert;
+-            Vector3 moveDir = (h + v).normalized;
+ 
++            //Vector3 moveDir = (h + v).normalized;
++            //Vector3 moveDir =  v.normalized;
++            Vector3 moveDir = (transform.up * vert).normalized;
++
++            print(moveDir);
+             bool canMove = CanMove(moveDir);
+             if (!canMove || moveDir == Vector3.zero)
+             {

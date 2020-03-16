@@ -8251,6 +8251,7 @@ MonoBehaviour:
   rotateSpeed: 5
   delta: 0
   IsOk: 0
+  followMe: {fileID: 1021456673}
 --- !u!114 &1210117777
 MonoBehaviour:
   m_ObjectHideFlags: 0
