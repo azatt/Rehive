@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CaterPillarMovement : MonoBehaviour
 {
-    [SerializeField] public float speed;
     [SerializeField] public float initialSpeed;
+    [SerializeField] public float climbSpeed = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,6 @@ public class CaterPillarMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * speed * Time.deltaTime);           ;
+        transform.Translate(Input.GetAxis("Horizontal") * climbSpeed * Time.deltaTime, 0f, Input.GetAxis("Vertical") * climbSpeed * Time.deltaTime);           ;
     }
 }

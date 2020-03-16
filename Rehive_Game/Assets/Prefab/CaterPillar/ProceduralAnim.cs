@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -42,10 +43,24 @@ public class ProceduralAnim : MonoBehaviour
 
         if(playerOldScale != player.transform.localScale)
         {
+            LinkParent(false);
+            transform.localPosition = BodyParts[0].transform.position;
+            LinkParent(true);
             transform.localScale = transform.localScale * (player.transform.localScale.magnitude / playerOldScale.magnitude);
         }
         playerOldScale = player.transform.localScale;
     }
+
+    private void LinkParent(bool connect)
+    {
+
+        for(int i = 1; i <  BodyParts.Count; i++) 
+        {
+            BodyParts[i].parent = connect? transform: null;
+
+        }
+    }
+
 
     public void Move()
     {

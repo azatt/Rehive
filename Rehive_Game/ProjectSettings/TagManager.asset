@@ -11,6 +11,7 @@ TagManager:
   - lb_perchTarget
   - SafeZone
   - speedPU
+  - player
   layers:
   - Default
   - TransparentFX

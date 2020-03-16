@@ -2729,6 +2729,8 @@ MonoBehaviour:
   minDistance: 1.5
   speed: 10
   rotationspeed: 150
+  player: {fileID: 0}
+  minMovingDistance: 0
   animSpeed: 100
   frequency: 1
   amplitude: 0.5

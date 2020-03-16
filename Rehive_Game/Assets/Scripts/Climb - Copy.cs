@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Climb : MonoBehaviour
+public class ClimbCopy : MonoBehaviour
 {
     public bool isClimbing;
 
@@ -41,7 +41,7 @@ public class Climb : MonoBehaviour
         Vector3 dir = transform.forward;
         RaycastHit hit;
         //Debug.DrawRay(origin, dir, Color.green);
-        if (Physics.Raycast(origin, dir, out hit, 10))
+        if(Physics.Raycast(origin,dir, out hit, 10))
         {
             helper.position = PosWithOffset(origin, hit.point);
             InitForClimb(hit);
@@ -93,7 +93,7 @@ public class Climb : MonoBehaviour
 
             //Vector3 moveDir = (h + v).normalized;
             //Vector3 moveDir =  v.normalized;
-            Vector3 moveDir = (transform.up * vert).normalized;
+            Vector3 moveDir = (transform.up * vert).normalized ;
 
             print(moveDir);
             bool canMove = CanMove(moveDir);
@@ -171,7 +171,7 @@ public class Climb : MonoBehaviour
     void GetInPosition()
     {
         posT += delta;
-        if (posT > 1)
+        if(posT > 1)
         {
             posT = 1;
             inPosition = true;

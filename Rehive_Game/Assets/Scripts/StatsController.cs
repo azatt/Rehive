@@ -9,7 +9,7 @@ public class StatsController : MonoBehaviour
     // Start is called before the first frame update
     Stats playerStats;
     [SerializeField] float transitionStartTime;
-    [SerializeField] float growingTime = 2 ;
+    [SerializeField] float growingTime = 2;
     [SerializeField] float colorChangingTime = 2;
     [SerializeField] Vector3 startingScale;
     [SerializeField] Vector3 targetScale;
@@ -17,7 +17,7 @@ public class StatsController : MonoBehaviour
     [SerializeField] GameObject scalingBody;
     [SerializeField] Color[] colors;
     [SerializeField] Material[] materials;
-    
+
     public float totalThreatLevel;
     public static float globalThreatLevel;
     public int threatCount;
@@ -37,6 +37,7 @@ public class StatsController : MonoBehaviour
     public float initialScale;
     public GameObject collObj;
     public float scalingSpeed = 40;
+    public float threatLevelRate;
 
     void Start()
     {
@@ -49,7 +50,7 @@ public class StatsController : MonoBehaviour
         materials = camoBody.GetComponent<SkinnedMeshRenderer>().materials;
         currentColor = colors[0];
         SetColorOfMaterials();
-        
+
         StartCoroutine(CheckDangerState());
         initialScale = scalingBody.transform.localScale.x;
 
@@ -71,7 +72,7 @@ public class StatsController : MonoBehaviour
         {
             growInterpolate();
         }
-        totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
+        //totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
         UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" + totalThreatLevel.ToString();
         globalThreatLevel = totalThreatLevel;
     }
@@ -90,7 +91,7 @@ public class StatsController : MonoBehaviour
                 EnterHiddenState();
             }
             yield return new WaitForSeconds(0.1f);
-            
+
         }
     }
 
@@ -150,8 +151,8 @@ public class StatsController : MonoBehaviour
         try
         {
 
-        UIController.dangerText.text = "You are hidden!";
-        //UIController.threatLevel.text = "ThreatLevel:0";
+            UIController.dangerText.text = "You are hidden!";
+            //UIController.threatLevel.text = "ThreatLevel:0";
         }
         catch
         {
@@ -164,7 +165,6 @@ public class StatsController : MonoBehaviour
     {
         dangerState = DangerState.safeZone;
         UIController.dangerText.text = "You are in a safezone!";
-        UIController.threatLevel.text = "ThreatLevel:0";
 
     }
 
@@ -174,7 +174,7 @@ public class StatsController : MonoBehaviour
         UIController.camoText.text = "Camo:" + playerStats.camo.ToString();
         int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 4);
 
-        if(colorIndex > currentColorIndex)
+        if (colorIndex > currentColorIndex)
         {
             StartCoroutine(startInterpolatedColor(colors[colorIndex]));
         }
@@ -192,7 +192,7 @@ public class StatsController : MonoBehaviour
 
     private void AddToSize(int amount)
     {
-        
+
         growingState = GrowingState.growing;
         playerStats.AddStats(Stats.Type.Size, amount);
         UIController.sizeText.text = "Size:" + playerStats.size.ToString();
@@ -229,7 +229,7 @@ public class StatsController : MonoBehaviour
         while (timeColorProgressInterpolation < colorChangingTime && coroutinesRunning <= 1)
         {
             timeColorProgressInterpolation += Time.deltaTime;
-             colorChangeInterpolate();
+            colorChangeInterpolate();
 
             yield return 0;
         }
@@ -237,19 +237,19 @@ public class StatsController : MonoBehaviour
         coroutinesRunning--;
     }
 
-   private void colorChangeInterpolate()
-   {
-       float fractionOfTransition = timeColorProgressInterpolation / colorChangingTime;
+    private void colorChangeInterpolate()
+    {
+        float fractionOfTransition = timeColorProgressInterpolation / colorChangingTime;
 
-       Color color = Color.Lerp(
-           startingColor,
-           endingColor,
-           fractionOfTransition);
+        Color color = Color.Lerp(
+            startingColor,
+            endingColor,
+            fractionOfTransition);
 
         // Check if the fall is finished
         currentColor = color;
         SetColorOfMaterials();
-   }
+    }
 
     private void growthComplete()
     {
@@ -257,7 +257,8 @@ public class StatsController : MonoBehaviour
     }
     public Vector3 targetPoint
     {
-        get{
+        get
+        {
             //return transform.position + new Vector3(0, 0.5f, 0);
             return transform.position + new Vector3(0, 0, 0);
         }

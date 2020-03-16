@@ -19,6 +19,7 @@ public class UIController : MonoBehaviour
         sizeText = transform.Find("Size").gameObject.GetComponent<Text>();
         camoText = transform.Find("Camo").gameObject.GetComponent<Text>();
         dangerText = transform.Find("DangerText").gameObject.GetComponent<Text>();
+        threatLevel= transform.Find("ThreatLevel").gameObject.GetComponent<Text>();
     }
 
     // Update is called once per frame
