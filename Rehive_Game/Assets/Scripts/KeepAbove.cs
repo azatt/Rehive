@@ -24,7 +24,7 @@ public class KeepAbove: MonoBehaviour
 
         //Debug.DrawRay(origin, dir * maxRayDist, Color.red);
 
-        if (Physics.Raycast(origin, dir, out hit, maxRayDist) && hit.transform.tag != "player" )
+        if (Physics.Raycast(origin, dir, out hit, maxRayDist) && hit.transform.tag != "player" && hit.transform.tag != "SafeZone")
         {
             intersected = hit.collider.gameObject;
             Vector3 normalized = dir.normalized;

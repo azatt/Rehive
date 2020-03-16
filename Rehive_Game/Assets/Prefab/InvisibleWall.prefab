@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 7518694674251827868}
   - component: {fileID: 7518694674251827869}
   - component: {fileID: 7518694674251827870}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InvisibleWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -19,6 +19,7 @@ public class Bird : MonoBehaviour
     public float DurationCheckViewState = 1f;
     public float DurationCheckViewInstance = 0.1f;
     public int viewInstanceThreshold = 4;
+    public LayerMask layerMask;
 
     void Start()
     {
@@ -85,7 +86,8 @@ public class Bird : MonoBehaviour
         Vector3 directionToPlayer = statusPlayer.targetPoint - transform.position;
         Ray rayToPlayer = new Ray(transform.position, directionToPlayer.normalized);
         Debug.DrawRay(transform.position, directionToPlayer);
-        Physics.Raycast(rayToPlayer, out hit);
+        LayerMask layerMask = ~(1 << 8 | 1 << 9);
+        Physics.Raycast(rayToPlayer, out hit, 100f, layerMask);
         distance = directionToPlayer.magnitude;
         if (hit.transform.tag == "player")
         {

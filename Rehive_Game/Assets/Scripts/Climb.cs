@@ -130,7 +130,7 @@ public class Climb : MonoBehaviour
         Debug.DrawRay(origin, dir * dis, Color.red);
         RaycastHit hit;
 
-        if (Physics.Raycast(origin, dir, out hit, dis))
+        if (Physics.Raycast(origin, dir, out hit, dis) && hit.transform.tag != "SafeZone")
         {
             return false;
         }
