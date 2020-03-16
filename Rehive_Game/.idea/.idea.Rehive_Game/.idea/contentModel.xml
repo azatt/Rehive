@@ -10,10 +10,12 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="ControllingDayNight.cs" t="Include" />
+        <e p="DangerZone.cs" t="Include" />
         <e p="Editor" t="Include">
           <e p="Readme-ResourceChecker.txt" t="Include" />
           <e p="ResourceChecker.cs" t="Include" />
         </e>
+        <e p="EndPoint.cs" t="Include" />
         <e p="giveScriptChild.cs" t="Include" />
         <e p="living birds" t="Include">
           <e p="demo" t="Include">
@@ -93,9 +95,29 @@
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="Stats.cs" t="Include" />
           <e p="StatsController.cs" t="Include" />
+          <e p="StatsControllerTest2.cs" t="Include" />
           <e p="UIController.cs" t="Include" />
         </e>
         <e p="Spotlight.cs" t="Include" />
+        <e p="UI" t="Include">
+          <e p="AudioVolume.cs" t="Include" />
+          <e p="Demigiant" t="Include">
+            <e p="DOTween" t="Include">
+              <e p="Modules" t="Include">
+                <e p="DOTweenModuleAudio.cs" t="Include" />
+                <e p="DOTweenModulePhysics.cs" t="Include" />
+                <e p="DOTweenModulePhysics2D.cs" t="Include" />
+                <e p="DOTweenModuleSprite.cs" t="Include" />
+                <e p="DOTweenModuleUI.cs" t="Include" />
+                <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+                <e p="DOTweenModuleUtils.cs" t="Include" />
+              </e>
+              <e p="ReadMe.txt" t="Include" />
+            </e>
+          </e>
+          <e p="UIManagerScript.cs" t="Include" />
+          <e p="UIManagerScript1.cs" t="Include" />
+        </e>
         <e p="UnityAssets" t="Include">
           <e p="[BFW]SimpleDynamicClouds" t="Include">
             <e p="ReadMe.txt" t="Include" />

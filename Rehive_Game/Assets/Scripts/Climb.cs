@@ -23,7 +23,7 @@ public class Climb : MonoBehaviour
 
     public bool IsOk = false;
 
-    Transform helper;
+    public Transform helper;
 
     // Creates a helper to "save" the transform during the frame and starts the start position search
     public void Start()
