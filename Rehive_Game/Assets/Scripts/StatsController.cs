@@ -7,7 +7,7 @@ using UnityEngine.Playables;
 public class StatsController : MonoBehaviour
 {
     // Start is called before the first frame update
-    Stats playerStats;
+    public Stats playerStats;
     [SerializeField] float transitionStartTime;
     [SerializeField] float growingTime = 2;
     [SerializeField] float colorChangingTime = 2;
@@ -19,6 +19,7 @@ public class StatsController : MonoBehaviour
     [SerializeField] Material[] materials;
 
     public float totalThreatLevel;
+    public float distancegrowth = 0.15f;
     public static float globalThreatLevel;
     public int threatCount;
     public enum GrowingState { growing, stagnating }
@@ -27,6 +28,7 @@ public class StatsController : MonoBehaviour
     GrowingState growingState;
     public DangerState dangerState;
     private Climb movementController;
+    private ProceduralAnim bodyController;
     public UIController UIController;
     private Color endingColor;
     public float timeColorProgressInterpolation;
@@ -46,6 +48,7 @@ public class StatsController : MonoBehaviour
         dangerState = DangerState.danger;
 
         movementController = GetComponent<Climb>();
+        bodyController = FindObjectOfType<ProceduralAnim>();
         UIController = FindObjectOfType<UIController>();
         materials = camoBody.GetComponent<SkinnedMeshRenderer>().materials;
         currentColor = colors[0];
@@ -172,7 +175,7 @@ public class StatsController : MonoBehaviour
     {
         playerStats.AddStats(Stats.Type.Camo, amount);
         UIController.camoText.text = "Camo:" + playerStats.camo.ToString();
-        int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 4);
+        int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 12);
 
         if (colorIndex > currentColorIndex)
         {
@@ -202,6 +205,7 @@ public class StatsController : MonoBehaviour
     private void startInterpolatedGrowth()
     {
         startingScale = scalingBody.transform.localScale;
+        bodyController.minDistance += distancegrowth;
         transitionStartTime = Time.time;
         float scaleFromSize = initialScale + (float)(playerStats.size) / scalingSpeed * initialScale;
         targetScale = new Vector3(scaleFromSize, scaleFromSize, scaleFromSize);
