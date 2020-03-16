@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 8856694684838806262}
   - component: {fileID: 9073837871394905590}
   - component: {fileID: 9105957088921224334}
-  - component: {fileID: 8953745418374649973}
   m_Layer: 0
   m_Name: Leaf
   m_TagString: Untagged
@@ -59,7 +58,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6822447538715487565}
   m_LocalRotation: {x: 0.18693262, y: -0.6742087, z: 0.7097018, w: 0.0825968}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.005, y: 0.033, z: -0.001}
   m_LocalScale: {x: 150, y: 150, z: 300}
   m_Children: []
   m_Father: {fileID: 7374595728876253979}
@@ -112,19 +111,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8953745418374649973
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6822447538715487565}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.005242083, y: 0.004498424, z: 0.0008933919}
-  m_Center: {x: -0.000064828, y: -0.00008976317, z: 0.000507605}
 --- !u!1 &8759549885073680526
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +123,7 @@ GameObject:
   - component: {fileID: 6292862998427335}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: SafeZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,13 +135,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8759549885073680526}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.000000029802315, y: -0.22513166, z: 0.000000089406946, w: 0.97432834}
+  m_LocalPosition: {x: 0.049, y: -0.102, z: -0.205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7374595728876253979}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.8640003, y: -26.021002, z: 0}
 --- !u!65 &6292862998427335
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -164,8 +150,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8759549885073680526}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8045769, y: 0.19680023, z: 0.73957443}
-  m_Center: {x: 0.048704147, y: -0.06361961, z: 0.041189194}
+  m_Size: {x: 0.36506447, y: 0.06241241, z: 0.39064336}
+  m_Center: {x: 0.09617445, y: -0.07857196, z: 0.21565802}

@@ -1541,7 +1541,7 @@ GameObject:
   - component: {fileID: 5400000}
   - component: {fileID: 8200000}
   - component: {fileID: 13500000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lb_blueJay
   m_TagString: lb_bird
   m_Icon: {fileID: 0}

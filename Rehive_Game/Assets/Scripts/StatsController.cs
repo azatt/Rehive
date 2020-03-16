@@ -85,11 +85,11 @@ public class StatsController : MonoBehaviour
         while (true)
         {
 
-            if (threatCount > 0)
+            if (threatCount > 0 && dangerState != DangerState.safeZone)
             {
                 EnterDangerState();
             }
-            else
+            else if(dangerState != DangerState.safeZone)
             {
                 EnterHiddenState();
             }
@@ -117,6 +117,7 @@ public class StatsController : MonoBehaviour
                 break;
             case PowerUp.Tag.SafeZone:
                 EnterSafeZoneState();
+                print("safe");
                 break;
         }
     }
@@ -134,6 +135,7 @@ public class StatsController : MonoBehaviour
         {
             case PowerUp.Tag.SafeZone:
                 EnterWaitForUpdateState();
+                print("exit");
                 break;
         }
     }
