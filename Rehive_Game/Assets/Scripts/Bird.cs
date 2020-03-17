@@ -9,6 +9,7 @@ public class Bird : MonoBehaviour
     public GameObject player;
     public StatsController statusPlayer;
     private float previousThreatLevel;
+    public float distanceLevel;
     public float threatLevel;
     public GameObject intersection;
     public List<bool> inViewAccountant;
@@ -108,11 +109,12 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        previousThreatLevel = threatLevel;
+        distanceLevel = 1 / Mathf.Pow(distance, 1f); //* camoReduction;
         if(viewOnPlayer == ViewState.inView)
         {
+            threatLevel = distanceLevel; 
             float camoReduction = 1- ((float)statusPlayer.currentColorIndex / 10f);
-            previousThreatLevel = threatLevel;
-            threatLevel = 1 / Mathf.Pow(distance, 1f); //* camoReduction;
             statusPlayer.threatLevelRate -= previousThreatLevel;
             statusPlayer.threatLevelRate += threatLevel;
           
@@ -121,10 +123,8 @@ public class Bird : MonoBehaviour
         }
         else
         {
-            previousThreatLevel = threatLevel;
             threatLevel = 0;
             statusPlayer.threatLevelRate -= previousThreatLevel;
-            statusPlayer.threatLevelRate += threatLevel;
 
         }
     }
