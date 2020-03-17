@@ -11,7 +11,7 @@ public class DangerScript : MonoBehaviour
 
     void Update()
     {
-        if (StatsController.globalThreatLevel < 2)
+        if (StatsController.globalThreatLevel < 4)
         {
             int a = 0;
             if (DangerScript.dangerState == 1)

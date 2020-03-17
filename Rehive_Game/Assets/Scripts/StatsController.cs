@@ -20,7 +20,7 @@ public class StatsController : MonoBehaviour
 
     public float totalThreatLevel;
     public float distanceGrowth = 0.15f;
-    public static float globalThreatLevel;
+    public static float globalThreatLevel, camoValue, sizeValue, speedValue;
     public int threatCount;
     public enum GrowingState { growing, stagnating }
     public enum DangerState { hidden, safeZone, danger, waitingForUpdate }
@@ -81,7 +81,7 @@ public class StatsController : MonoBehaviour
             growInterpolate();
         }
         totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
-        UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" + totalThreatLevel.ToString();
+        //UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" + totalThreatLevel.ToString();
         globalThreatLevel = totalThreatLevel;
     }
 
@@ -153,7 +153,7 @@ public class StatsController : MonoBehaviour
     public void EnterDangerState()
     {
         dangerState = DangerState.danger;
-        UIController.dangerText.text = "You are in DANGER!";
+        //UIController.dangerText.text = "You are in DANGER!";
     }
     public void EnterHiddenState()
     {
@@ -161,7 +161,7 @@ public class StatsController : MonoBehaviour
         try
         {
 
-            UIController.dangerText.text = "You are hidden!";
+            //UIController.dangerText.text = "You are hidden!";
             //UIController.threatLevel.text = "ThreatLevel:0";
         }
         catch
@@ -174,14 +174,15 @@ public class StatsController : MonoBehaviour
     public void EnterSafeZoneState()
     {
         dangerState = DangerState.safeZone;
-        UIController.dangerText.text = "You are in a safezone!";
+        //UIController.dangerText.text = "You are in a safezone!";
 
     }
 
     private void AddToCamo(int amount)
     {
         playerStats.AddStats(Stats.Type.Camo, amount);
-        UIController.camoText.text = "Camo:" + playerStats.camo.ToString();
+        //UIController.camoText.text = "Camo:" + playerStats.camo.ToString();
+        camoValue = playerStats.camo;
         int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 12);
 
         if (colorIndex > currentColorIndex)
@@ -195,7 +196,8 @@ public class StatsController : MonoBehaviour
     {
 
         playerStats.AddStats(Stats.Type.Speed, amount);
-        UIController.speedText.text = "Speed:" + playerStats.speed.ToString();
+        //UIController.speedText.text = "Speed:" + playerStats.speed.ToString();
+        speedValue = playerStats.speed;
         //movementController.climbSpeed = movementController.initialSpeed + playerStats.speed / 10;
         movementController.climbSpeed += 1;
     }
@@ -207,7 +209,8 @@ public class StatsController : MonoBehaviour
         beforeSizeTimesInitialSize = 1 + playerStats.size / sizeThresholdDoubleSize;
         playerStats.AddStats(Stats.Type.Size, amount);
         afterSizeTimesInitialSize = 1 + playerStats.size / sizeThresholdDoubleSize;
-        UIController.sizeText.text = "Size:" + playerStats.size.ToString();
+        //UIController.sizeText.text = "Size:" + playerStats.size.ToString();
+        sizeValue = playerStats.size;
         startInterpolatedGrowth();
     }
 

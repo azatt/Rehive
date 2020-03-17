@@ -13,6 +13,11 @@ public class SizeMeter : MonoBehaviour
         sizeContainer.localScale = new Vector3(0.0001f, 1f);
     }
 
+    private void Update()
+    {
+        SetBarSize(StatsController.sizeValue / 100);
+    }
+    
     public void SetBarSize(float sizebarSize)
     {
         sizeContainer.localScale = new Vector3(sizebarSize, 1f);

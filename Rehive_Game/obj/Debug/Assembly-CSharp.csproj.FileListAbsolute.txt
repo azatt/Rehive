@@ -332,7 +332,3 @@ C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\Temp\bin\Debug\Unity.An
 C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\Temp\bin\Debug\UnityEditor.XR.LegacyInputHelpers.pdb
 C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\Temp\bin\Debug\com.unity.multiplayer-hlapi.Runtime.pdb
 C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\Temp\bin\Debug\DOTween.xml
-C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\Temp\bin\Debug\ICSharpCode.NRefactory.dll
-C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\Temp\bin\Debug\nunit.framework.dll
-C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\Temp\bin\Debug\nunit.framework.pdb
-C:\Users\Azat\Documents\GitHub\Rehive\Rehive\Rehive_Game\Temp\bin\Debug\nunit.framework.xml

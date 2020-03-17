@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bird : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Bird : MonoBehaviour
     public float DurationCheckViewInstance = 0.1f;
     public int viewInstanceThreshold = 4;
     public LayerMask layerMask;
+    public GameObject target;
+    public GameObject oldTragets;
 
     void Start()
     {
@@ -127,22 +130,30 @@ public class Bird : MonoBehaviour
             statusPlayer.threatLevelRate -= previousThreatLevel;
 
         }
+        CheckThreat();
     }
 
-    public void CheckIfHidden()
+    protected void CheckThreat()
     {
-        RaycastHit hit;
-        Vector3 directionToPlayer = statusPlayer.targetPoint - transform.position;         
-        Ray rayToPlayer = new Ray(transform.position, directionToPlayer.normalized);
-        Debug.DrawRay(transform.position, directionToPlayer);
-        Physics.Raycast(rayToPlayer, out hit);
-        if (hit.transform == player.transform)
+        if (StatsController.globalThreatLevel > 5)
         {
-
+            target.SetActive(true);
+            oldTragets.SetActive(false);
+            CheckBirdDistance();
         }
         else
         {
+            target.SetActive(false);
+            oldTragets.SetActive(true);
+        }
+    }
 
+    protected void CheckBirdDistance()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) < 1f)
+        {
+            StatsController.globalThreatLevel = 0;
+            SceneManager.LoadScene("GameOver");
         }
     }
 }

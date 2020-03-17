@@ -10,7 +10,7 @@ public class CheckExitDanger : MonoBehaviour
 
     void Update()
     {
-        if (StatsController.globalThreatLevel > 2)
+        if (StatsController.globalThreatLevel > 4)
         {
             enterDangerState.Play();
             DangerScript.dangerState = 0;

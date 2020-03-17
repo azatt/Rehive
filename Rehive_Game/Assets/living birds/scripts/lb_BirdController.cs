@@ -29,7 +29,10 @@ public class lb_BirdController : MonoBehaviour {
 	int birdIndex = 0;
 	GameObject[] featherEmitters = new GameObject[3];
 
-	public void AllFlee(){
+    public GameObject target;
+    public GameObject oldTragets;
+
+    public void AllFlee(){
 		if(!pause){
 			for(int i=0;i<myBirds.Length;i++){
 				if(myBirds[i].activeSelf){
@@ -271,6 +274,8 @@ public class lb_BirdController : MonoBehaviour {
             bird.AddComponent<Bird>();
             GameObject player = GameObject.Find("Player");
             bird.GetComponent<Bird>().player = player;
+            bird.GetComponent<Bird>().target = target;
+            bird.GetComponent<Bird>().oldTragets = oldTragets;
             }
 
             //

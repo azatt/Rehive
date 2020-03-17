@@ -13,6 +13,11 @@ public class SpeedMeter : MonoBehaviour
         speedContainer.localScale = new Vector3(0.0001f, 1f);
     }
 
+    private void Update()
+    {
+        SetBarSize(StatsController.speedValue / 100);
+    }
+
     public void SetBarSize(float speedbarSize)
     {
         speedContainer.localScale = new Vector3(speedbarSize, 1f);

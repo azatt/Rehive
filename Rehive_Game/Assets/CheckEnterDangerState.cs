@@ -11,7 +11,7 @@ public class CheckEnterDangerState : MonoBehaviour
 
     void Update()
     {
-        if (StatsController.globalThreatLevel > 2)
+        if (StatsController.globalThreatLevel > 4)
         {
             dangerState.Play();
             DangerScript.dangerState = 1;
