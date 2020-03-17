@@ -19,7 +19,7 @@ public class StatsController : MonoBehaviour
     [SerializeField] Material[] materials;
 
     public float totalThreatLevel;
-    public float distancegrowth = 0.15f;
+    public float distanceGrowth = 0.15f;
     public static float globalThreatLevel;
     public int threatCount;
     public enum GrowingState { growing, stagnating }
@@ -207,7 +207,7 @@ public class StatsController : MonoBehaviour
     private void startInterpolatedGrowth()
     {
         startingScale = scalingBody.transform.localScale;
-        bodyController.minDistance += distancegrowth;
+        bodyController.minDistance += distanceGrowth;
         transitionStartTime = Time.time;
         float scaleFromSize = initialScale + (float)(playerStats.size) / scalingSpeed * initialScale;
         targetScale = new Vector3(scaleFromSize, scaleFromSize, scaleFromSize);
