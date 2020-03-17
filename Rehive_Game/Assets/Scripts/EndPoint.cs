@@ -7,7 +7,7 @@ using UnityEngine.Playables;
 public class EndPoint : MonoBehaviour
 {
     private StatsController checker;
-    //public GameObject message;
+    public GameObject message;
 
     public int checkstate;
     public PlayableDirector cutscene;
@@ -39,7 +39,7 @@ public class EndPoint : MonoBehaviour
             else
             {
                 print("not big enough");
-               // message.gameObject.SetActive(true);
+                message.gameObject.SetActive(true);
             }
 
         }
@@ -49,7 +49,7 @@ public class EndPoint : MonoBehaviour
     {
         if (other.gameObject.tag == "player")
         {
-            //message.gameObject.SetActive(false);
+            message.gameObject.SetActive(false);
         }
     }
 }

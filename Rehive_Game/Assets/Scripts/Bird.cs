@@ -24,6 +24,7 @@ public class Bird : MonoBehaviour
     public GameObject target;
     public GameObject oldTragets;
     public float dist;
+    private float threatLevelThresholdDeath;
 
     void Start()
     {
@@ -134,11 +135,12 @@ public class Bird : MonoBehaviour
 
     protected void CheckThreat()
     {
-        if (StatsController.globalThreatLevel > 20)
+        if (StatsController.globalThreatLevel > threatLevelThresholdDeath)
         {
             target.SetActive(true);
             oldTragets.SetActive(false);
             CheckBirdDistance();
+            statusPlayer.dangerState = StatsController.DangerState.death;
         }
         else
         {

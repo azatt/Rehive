@@ -21,7 +21,7 @@ public class StatsController : MonoBehaviour
     public float distanceGrowth = 0.15f;
     public static float globalThreatLevel, camoValue, sizeValue, speedValue;
     public enum GrowingState { growing, stagnating }
-    public enum DangerState { hidden, safeZone, danger, waitingForUpdate }
+    public enum DangerState { hidden, safeZone, danger, waitingForUpdate, death }
 
     GrowingState growingState;
     public float beforeSizeTimesInitialSize;
@@ -98,6 +98,10 @@ public class StatsController : MonoBehaviour
         }
         //UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" + totalThreatLevel.ToString();
         globalThreatLevel = totalThreatLevel;
+        if(dangerState == DangerState.death)
+        {
+            globalThreatLevel = 20;
+        }
     }
 
     private IEnumerator CheckDangerState()
