@@ -18,10 +18,8 @@ public class StatsController : MonoBehaviour
     [SerializeField] Color[] colors;
     [SerializeField] Material[] materials;
 
-    public float totalThreatLevel;
     public float distanceGrowth = 0.15f;
     public static float globalThreatLevel, camoValue, sizeValue, speedValue;
-    public int threatCount;
     public enum GrowingState { growing, stagnating }
     public enum DangerState { hidden, safeZone, danger, waitingForUpdate }
 
@@ -41,10 +39,14 @@ public class StatsController : MonoBehaviour
     public float initialScale;
     public GameObject collObj;
     public float sizeThresholdDoubleSize = 40;
+    public int threatCount;
+    public float totalThreatLevel;
     public float threatLevelRate;
+    public float reductionRate = 0.4f;
     private float endSize;
     public float afterSizeTimesInitialSize;
     public float fractionOfTransitionSize;
+    public float reductionNettoRate;
 
     void Start()
     {
@@ -80,7 +82,18 @@ public class StatsController : MonoBehaviour
         {
             growInterpolate();
         }
-        totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
+        //totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
+        totalThreatLevel += threatLevelRate * Time.deltaTime * (1 - playerStats.camo/150 * 0.5f);
+        if(totalThreatLevel > 0)
+        {
+            reductionNettoRate= reductionRate;
+            if(threatCount == 0)
+            {
+
+                reductionNettoRate *= 3;
+            }
+            totalThreatLevel -= reductionNettoRate* Time.deltaTime;
+        }
         //UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" + totalThreatLevel.ToString();
         globalThreatLevel = totalThreatLevel;
     }

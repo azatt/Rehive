@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class EndPoint : MonoBehaviour
 {
@@ -9,12 +10,21 @@ public class EndPoint : MonoBehaviour
     //public GameObject message;
 
     public int checkstate;
+    public PlayableDirector cutscene;
 
     public bool IsVlinder;
     // Start is called before the first frame update
     void Start()
     {
         checker = FindObjectOfType<StatsController>();
+    }
+
+    private void Update()
+    {
+        if (IsVlinder)
+        {
+            cutscene.Play();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

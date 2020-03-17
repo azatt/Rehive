@@ -9,6 +9,7 @@ public class UIManagerScript1 : MonoBehaviour
 {
     public GameObject PauseMenu;
     public RectTransform Canvas, PausePanel, OptionsPanel, GamePanel;
+    public CanvasGroup canvasGroup;
     float growDelay = 0.2f;
     float screenHeight, screenWidth;
 
@@ -58,5 +59,10 @@ public class UIManagerScript1 : MonoBehaviour
     {
         OptionsPanel.DOMove(new Vector3(Canvas.anchoredPosition.x, Canvas.anchoredPosition.y - screenHeight, 0), 0.5f, false).SetDelay(growDelay);
         PausePanel.DOMove(new Vector3(Canvas.anchoredPosition.x, Canvas.anchoredPosition.y, 0), 0.5f, false).SetDelay(growDelay);
+    }
+
+    void Awake()
+    {
+        canvasGroup.DOFade(0, 2f);
     }
 }
