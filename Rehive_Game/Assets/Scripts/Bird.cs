@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using DG.Tweening;
 
 public class Bird : MonoBehaviour
 {
@@ -22,7 +21,6 @@ public class Bird : MonoBehaviour
     public float DurationCheckViewState = 1f;
     public float DurationCheckViewInstance = 0.1f;
     public int viewInstanceThreshold = 4;
-    public LayerMask layerMask;
     public GameObject target;
     public GameObject oldTragets;
     public float dist;
@@ -123,7 +121,6 @@ public class Bird : MonoBehaviour
             statusPlayer.threatLevelRate -= previousThreatLevel;
             statusPlayer.threatLevelRate += threatLevel;
           
-            statusPlayer.totalThreatLevel += threatLevel * Time.deltaTime;
 
         }
         else
@@ -131,6 +128,32 @@ public class Bird : MonoBehaviour
             threatLevel = 0;
             statusPlayer.threatLevelRate -= previousThreatLevel;
 
+        }
+        CheckThreat();
+    }
+
+    protected void CheckThreat()
+    {
+        if (StatsController.globalThreatLevel > 20)
+        {
+            target.SetActive(true);
+            oldTragets.SetActive(false);
+            CheckBirdDistance();
+        }
+        else
+        {
+            target.SetActive(false);
+            oldTragets.SetActive(true);
+        }
+    }
+
+    protected void CheckBirdDistance()
+    {
+        dist= Vector3.Distance(player.transform.position, transform.position);
+        if (Vector3.Distance(player.transform.position, transform.position) < 0.1f)
+        {
+            StatsController.globalThreatLevel = 0;
+            SceneManager.LoadScene("GameOver");
         }
     }
 }

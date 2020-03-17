@@ -4953,8 +4953,8 @@ RectTransform:
   m_Father: {fileID: 1285043550}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11126,8 +11126,8 @@ RectTransform:
   m_Father: {fileID: 1984768206}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13496,9 +13496,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3522781e5c8c22b439e3a6db12c25880, type: 2}
   - {fileID: 2100000, guid: 7799f379382c2e14e9d90563b80e8fa1, type: 2}
   - {fileID: 2100000, guid: 680dc5166190b4140893a1c384835c75, type: 2}
-  totalThreatLevel: 0
   distanceGrowth: 0.15
-  threatCount: 0
   beforeSizeTimesInitialSize: 0
   dangerState: 0
   UIController: {fileID: 0}
@@ -13509,9 +13507,13 @@ MonoBehaviour:
   initialScale: 0
   collObj: {fileID: 0}
   sizeThresholdDoubleSize: 40
+  threatCount: 0
+  totalThreatLevel: 0
   threatLevelRate: 0
+  reductionRate: 0.3
   afterSizeTimesInitialSize: 0
   fractionOfTransitionSize: 0
+  reductionNettoRate: 0
 --- !u!135 &1210117778
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19588,7 +19590,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -23007,7 +23009,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
