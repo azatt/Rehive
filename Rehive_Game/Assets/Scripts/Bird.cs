@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class Bird : MonoBehaviour
 {
@@ -130,32 +131,6 @@ public class Bird : MonoBehaviour
             threatLevel = 0;
             statusPlayer.threatLevelRate -= previousThreatLevel;
 
-        }
-        CheckThreat();
-    }
-
-    protected void CheckThreat()
-    {
-        if (StatsController.globalThreatLevel > 5)
-        {
-            target.SetActive(true);
-            oldTragets.SetActive(false);
-            CheckBirdDistance();
-        }
-        else
-        {
-            target.SetActive(false);
-            oldTragets.SetActive(true);
-        }
-    }
-
-    protected void CheckBirdDistance()
-    {
-        dist= Vector3.Distance(player.transform.position, transform.position);
-        if (Vector3.Distance(player.transform.position, transform.position) < 0.5f)
-        {
-            StatsController.globalThreatLevel = 0;
-            SceneManager.LoadScene("GameOver");
         }
     }
 }
