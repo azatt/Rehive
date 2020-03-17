@@ -12,6 +12,7 @@ TagManager:
   - SafeZone
   - speedPU
   - player
+  - Checkbox
   layers:
   - Default
   - TransparentFX

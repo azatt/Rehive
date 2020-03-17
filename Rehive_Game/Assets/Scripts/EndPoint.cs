@@ -6,7 +6,7 @@ using UnityEngine;
 public class EndPoint : MonoBehaviour
 {
     private StatsController checker;
-    public GameObject message;
+    //public GameObject message;
 
     public int checkstate;
 
@@ -19,7 +19,7 @@ public class EndPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "player")
         {
             if (checker.playerStats.size >= checkstate)
             {
@@ -28,7 +28,8 @@ public class EndPoint : MonoBehaviour
             }
             else
             {
-                message.gameObject.SetActive(true);
+                print("not big enough");
+               // message.gameObject.SetActive(true);
             }
 
         }
@@ -36,9 +37,9 @@ public class EndPoint : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "player")
         {
-            message.gameObject.SetActive(false);
+            //message.gameObject.SetActive(false);
         }
     }
 }

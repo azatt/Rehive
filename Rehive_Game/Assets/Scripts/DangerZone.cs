@@ -15,7 +15,7 @@ public class DangerZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "player")
         {
             warning.gameObject.SetActive(true);
         }
@@ -23,7 +23,7 @@ public class DangerZone : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "player")
         {
             warning.gameObject.SetActive(false);
         }
