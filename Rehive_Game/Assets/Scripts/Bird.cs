@@ -24,6 +24,7 @@ public class Bird : MonoBehaviour
     public LayerMask layerMask;
     public GameObject target;
     public GameObject oldTragets;
+    public float dist;
 
     void Start()
     {
@@ -150,7 +151,8 @@ public class Bird : MonoBehaviour
 
     protected void CheckBirdDistance()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) < 1f)
+        dist= Vector3.Distance(player.transform.position, transform.position);
+        if (Vector3.Distance(player.transform.position, transform.position) < 0.5f)
         {
             StatsController.globalThreatLevel = 0;
             SceneManager.LoadScene("GameOver");

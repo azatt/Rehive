@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 54268561906299182}
   - component: {fileID: 6269201790776285927}
   - component: {fileID: 6689004088213948317}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Checkbox
   m_Icon: {fileID: 0}
@@ -133,9 +133,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7518694674251827840}
-  m_LocalRotation: {x: -0.008659889, y: 0.42610422, z: 0.9044459, w: -0.018381415}
+  m_LocalRotation: {x: -0.008661112, y: 0.4261039, z: 0.9044461, w: -0.01837964}
   m_LocalPosition: {x: 122.388, y: 14.951, z: 258.723}
-  m_LocalScale: {x: 0.06503093, y: 0.06503093, z: 0.06503093}
+  m_LocalScale: {x: 0.08764732, y: 0.08764732, z: 0.08764732}
   m_Children:
   - {fileID: 1196307841359583988}
   m_Father: {fileID: 0}
