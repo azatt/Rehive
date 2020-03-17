@@ -1,0 +1,41 @@
+fileFormatVersion: 2
+guid: 0b901ed1d09380e4f9d828d4f28900a9
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sitka Small
+  fontNames:
+  - Sitka Small
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9182d0c05a64b2147a99f17f435e48af, type: 3}
+  - {fileID: 12800000, guid: e1964ad02592ebd4b8a1bbc5a3218398, type: 3}
+  - {fileID: 12800000, guid: f2194fd01e44d0c43a731aaed5f6d240, type: 3}
+  - {fileID: 12800000, guid: 176025b14dde9814084d2c3b404c1903, type: 3}
+  - {fileID: 12800000, guid: 139aa162f25c5f046913a30c360f129a, type: 3}
+  - {fileID: 12800000, guid: 85a1ed13bb166704e8b98bccbcd13d1b, type: 3}
+  - {fileID: 12800000, guid: b00f90e42de55be4ab0ddf5f3009cca8, type: 3}
+  - {fileID: 12800000, guid: e5e2fe77451e3a048920f0ef06e22e7f, type: 3}
+  - {fileID: 12800000, guid: 90eaa80958082124fbbf39c301e5b3c3, type: 3}
+  - {fileID: 12800000, guid: a2264269f8556244dbc2bd3bd011428e, type: 3}
+  - {fileID: 12800000, guid: b8bea279aad311e4dbf3a5ae9dfc18c6, type: 3}
+  - {fileID: 12800000, guid: 98c35f7a12217ff48948185a965a398e, type: 3}
+  - {fileID: 12800000, guid: 08c7fdebae7aa9647ae3c69b676f84c2, type: 3}
+  - {fileID: 12800000, guid: 448cf93cfb5171a4fa37b8b492bcd2cc, type: 3}
+  - {fileID: 12800000, guid: 7330506dacd6ef243982fa4c7acdb15f, type: 3}
+  - {fileID: 12800000, guid: 000223cd9746ac840a6b24377cf8307f, type: 3}
+  - {fileID: 12800000, guid: d627874ef4818184299a8cdce16f0e69, type: 3}
+  - {fileID: 12800000, guid: 155a246e605da16439cb90a91b5a842c, type: 3}
+  - {fileID: 12800000, guid: 4763c2aecc2da174da31d325443c3a5d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

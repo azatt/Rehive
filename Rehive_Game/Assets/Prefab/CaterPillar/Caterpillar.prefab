@@ -456,7 +456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2272070148239456525}
   m_LocalRotation: {x: -0, y: -0, z: -0.0000000066465873, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.006814182, y: 0.39728695, z: 0.0019763506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6882033153913763458}
@@ -1130,7 +1130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3389456749763225690}
   m_LocalRotation: {x: -0.0017805398, y: 0.0017369986, z: -0.7010153, w: 0.7131419}
-  m_LocalPosition: {x: -3.8836498, y: 0.585971, z: 0.07627869}
+  m_LocalPosition: {x: -4.281, y: 0.585971, z: 0.07627869}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6904849129251221574}
@@ -2735,6 +2735,7 @@ MonoBehaviour:
   frequency: 1
   amplitude: 0.5
   contractDelay: 5
+  initialOffSetFromTree: 0
 --- !u!1 &7455046743861252646
 GameObject:
   m_ObjectHideFlags: 0

@@ -217,6 +217,7 @@ public class StatsController : MonoBehaviour
     private void startInterpolatedGrowth()
     {
         startingScale = scalingBody.transform.localScale;
+        distanceGrowth += 0.1f;
         bodyController.minDistance += distanceGrowth;
         transitionStartTime = Time.time;
         float amountTimesInitialSize = playerStats.size / sizeThresholdDoubleSize +1;
