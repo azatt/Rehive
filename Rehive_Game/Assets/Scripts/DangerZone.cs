@@ -9,7 +9,7 @@ public class DangerZone : MonoBehaviour
 
     private void Start()
     {
-        warning = GameObject.Find("Canvas/warning");
+        warning = GameObject.Find("UIGeneral/TextCanvas/warning");
         warning.gameObject.SetActive(false);
     }
 
