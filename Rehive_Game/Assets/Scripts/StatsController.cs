@@ -48,6 +48,8 @@ public class StatsController : MonoBehaviour
     public float fractionOfTransitionSize;
     public float reductionNettoRate;
 
+    [SerializeField] private AudioClip eatSoundEffect;
+
     void Start()
     {
         playerStats = new Stats(0, 0, 0);
@@ -142,6 +144,7 @@ public class StatsController : MonoBehaviour
 
     private IEnumerator EatLeaf(GameObject gameObject)
     {
+        AudioManager.Instance.PlaySoundEffect(eatSoundEffect, 1);
         gameObject.transform.parent.parent.GetComponent<PlayableDirector>().Play();
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
