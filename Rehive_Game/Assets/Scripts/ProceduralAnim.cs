@@ -25,6 +25,7 @@ public class ProceduralAnim : MonoBehaviour
 
     private float xPos, timer;
     public float animSpeed, frequency, amplitude, contractDelay;
+    public float initialOffSetFromTree;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class ProceduralAnim : MonoBehaviour
         playerOldScale = player.transform.localScale;
         minMovingDistance = 0.0001f;
         animationtimer = 5;
+        SetOffsetFromTreeFromSize(1f);
     }
 
     void Update()
@@ -59,6 +61,15 @@ public class ProceduralAnim : MonoBehaviour
             BodyParts[i].parent = connect? transform: null;
 
         }
+    }
+    public void SetOffsetFromTreeFromSize(float amountTimesInitialScale)
+    {
+        float offsetFromTree = amountTimesInitialScale * initialOffSetFromTree;
+        for(int i = 1; i < BodyParts.Count; i++)
+        {
+            BodyParts[i].GetComponent<KeepAbove>().offsetFromTree = offsetFromTree;
+        }
+
     }
 
 

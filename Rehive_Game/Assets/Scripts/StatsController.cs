@@ -26,6 +26,8 @@ public class StatsController : MonoBehaviour
     public enum DangerState { hidden, safeZone, danger, waitingForUpdate }
 
     GrowingState growingState;
+    public float beforeSizeTimesInitialSize;
+    private float initialSize;
     public DangerState dangerState;
     private Climb movementController;
     private ProceduralAnim bodyController;
@@ -38,8 +40,11 @@ public class StatsController : MonoBehaviour
     public int coroutinesRunning;
     public float initialScale;
     public GameObject collObj;
-    public float scalingSpeed = 40;
+    public float sizeThresholdDoubleSize = 40;
     public float threatLevelRate;
+    private float endSize;
+    public float afterSizeTimesInitialSize;
+    public float fractionOfTransitionSize;
 
     void Start()
     {
@@ -199,7 +204,9 @@ public class StatsController : MonoBehaviour
     {
 
         growingState = GrowingState.growing;
+        beforeSizeTimesInitialSize = 1 + playerStats.size / sizeThresholdDoubleSize;
         playerStats.AddStats(Stats.Type.Size, amount);
+        afterSizeTimesInitialSize = 1 + playerStats.size / sizeThresholdDoubleSize;
         UIController.sizeText.text = "Size:" + playerStats.size.ToString();
         startInterpolatedGrowth();
     }
@@ -209,20 +216,29 @@ public class StatsController : MonoBehaviour
         startingScale = scalingBody.transform.localScale;
         bodyController.minDistance += distanceGrowth;
         transitionStartTime = Time.time;
-        float scaleFromSize = initialScale + (float)(playerStats.size) / scalingSpeed * initialScale;
+        float amountTimesInitialSize = playerStats.size / sizeThresholdDoubleSize +1;
+        float scaleFromSize =  amountTimesInitialSize * initialScale;
         targetScale = new Vector3(scaleFromSize, scaleFromSize, scaleFromSize);
     }
 
     private void growInterpolate()
     {
-        float fractionOfTransition = (Time.time - transitionStartTime) / growingTime;
+        fractionOfTransitionSize = (Time.time - transitionStartTime) / growingTime;
 
         scalingBody.transform.localScale = Vector3.Lerp(
             startingScale,
             targetScale,
-            fractionOfTransition);
+            fractionOfTransitionSize);
 
-        // Check if the fall is finished
+        float currentSizeTimesInitialSize = beforeSizeTimesInitialSize + (afterSizeTimesInitialSize - beforeSizeTimesInitialSize) * fractionOfTransitionSize;
+        bodyController.SetOffsetFromTreeFromSize(currentSizeTimesInitialSize); 
+        if(fractionOfTransitionSize > 1)
+        {
+            growingState = GrowingState.stagnating;
+            currentSizeTimesInitialSize = afterSizeTimesInitialSize;
+            bodyController.SetOffsetFromTreeFromSize(currentSizeTimesInitialSize); 
+
+        }
     }
     IEnumerator startInterpolatedColor(Color newColor)
     {

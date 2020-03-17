@@ -52,7 +52,7 @@ public class Bird : MonoBehaviour
             }
             
         }
-        if(sum >= viewInstanceThreshold)
+        if(sum >= viewInstanceThreshold && statusPlayer.dangerState != StatsController.DangerState.safeZone)
         {
             if (viewOnPlayer == ViewState.notInView)
             {
