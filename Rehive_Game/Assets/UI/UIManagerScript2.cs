@@ -11,6 +11,10 @@ public class UIManagerScript2 : MonoBehaviour
     public RectTransform RetryButton, MainMenuButton, GameOver;
     float growDelay = 0.2f;
 
+    void Awake()
+    {
+        canvasFade.DOFade(0, 1f);
+    }
 
     public void ButtonAnimation(RectTransform button)
     {
