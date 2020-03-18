@@ -24,7 +24,7 @@ public class Bird : MonoBehaviour
     public GameObject target;
     public GameObject oldTragets;
     public float dist;
-    public float threatLevelThresholdDeath = 15;
+    public float threatLevelThresholdDeath = 10;
 
     void Start()
     {
@@ -159,7 +159,7 @@ public class Bird : MonoBehaviour
     }
     IEnumerator TransitionToGameOverScene()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         StatsController.globalThreatLevel = 0;
         SceneManager.LoadScene("GameOver");
     }

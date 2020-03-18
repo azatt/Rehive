@@ -89,11 +89,16 @@ public class StatsController : MonoBehaviour
         if(totalThreatLevel > 0)
         {
             reductionNettoRate= reductionRate;
-            if(threatCount == 0)
+            if(dangerState == DangerState.safeZone)
+            {
+                reductionNettoRate *= 4;
+            }
+            else if (threatCount == 0)
             {
 
-                reductionNettoRate *= 3;
+                reductionNettoRate *= 1.5f;
             }
+
             totalThreatLevel -= reductionNettoRate* Time.deltaTime;
         }
         //UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" + totalThreatLevel.ToString();
@@ -149,6 +154,7 @@ public class StatsController : MonoBehaviour
     {
         AudioManager.Instance.PlaySoundEffect(eatSoundEffect, 1);
         gameObject.transform.parent.parent.GetComponent<PlayableDirector>().Play();
+        gameObject.GetComponent<Collider>().enabled = false;
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }

@@ -7,6 +7,7 @@ public class DangerBar : MonoBehaviour
 {
     private Transform birdSprite, barSprite;
     public PlayableDirector enterDanger;
+    public float dangerThreshold;
 
     private void Start()
     {
@@ -18,7 +19,7 @@ public class DangerBar : MonoBehaviour
 
     public void Update()
     {
-        SetBarSize(StatsController.globalThreatLevel/15);
+        SetBarSize(StatsController.globalThreatLevel/dangerThreshold);
         if(StatsController.globalThreatLevel > 8 && DangerScript.dangerState == 0)
         {
             enterDanger.Play();
