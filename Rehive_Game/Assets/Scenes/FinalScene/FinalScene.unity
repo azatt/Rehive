@@ -100,7 +100,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 3efcdf1c3e13532409f6c35da9056cce,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -9360,17 +9360,17 @@ PrefabInstance:
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.06503093
+      value: 0.05279536
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.06503093
+      value: 0.042702474
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.06503093
+      value: 0.05279536
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c586ada0063a0394daeb6670682e966b, type: 3}
@@ -10400,17 +10400,17 @@ PrefabInstance:
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.14220412
+      value: 0.09404328
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.14220412
+      value: 0.04144902
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.14220412
+      value: 0.09404328
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c586ada0063a0394daeb6670682e966b, type: 3}
@@ -13415,17 +13415,17 @@ PrefabInstance:
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 121.233
+      value: 121.071
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.57
+      value: 12.495
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 261.176
+      value: 261.189
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
@@ -13470,12 +13470,12 @@ PrefabInstance:
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1661655
+      value: 0.14901721
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1661655
+      value: 0.06803452
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
@@ -15386,13 +15386,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isClimbing: 0
+  IsOk: 0
   positionOffset: 0.05
   OffsetFromWall: 0.01
   speed_multiplier: 0.2
   climbSpeed: 3
   rotateSpeed: 5
   delta: 0
-  IsOk: 0
   followMe: {fileID: 1021456673}
 --- !u!114 &1210117777
 MonoBehaviour:
@@ -15406,14 +15406,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e50f50923d7d73b44a0d99e771c5603e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 0}
   transitionStartTime: 0
   growingTime: 2
   colorChangingTime: 8
   startingScale: {x: 0, y: 0, z: 0}
   targetScale: {x: 0, y: 0, z: 0}
-  camoBody: {fileID: 1623901969}
-  scalingBody: {fileID: 1210117771}
   colors:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0.3490566, g: 0.020483488, b: 0.014818435, a: 0}
@@ -15426,6 +15423,8 @@ MonoBehaviour:
   - {r: 0.80392164, g: 0.8980393, b: 0.098039225, a: 0}
   - {r: 0.49411768, g: 0.8980393, b: 0.098039225, a: 0}
   - {r: 0.098039225, g: 0.8980393, b: 0.13333334, a: 0}
+  camoBody: {fileID: 1623901969}
+  scalingBody: {fileID: 1210117771}
   materials:
   - {fileID: 2100000, guid: 03155d6fe135b6549bacad3f80a56f18, type: 2}
   - {fileID: 2100000, guid: 1250c174836ea324a8187e7f9f7ff3b4, type: 2}
@@ -15436,16 +15435,16 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3522781e5c8c22b439e3a6db12c25880, type: 2}
   - {fileID: 2100000, guid: 7799f379382c2e14e9d90563b80e8fa1, type: 2}
   - {fileID: 2100000, guid: 680dc5166190b4140893a1c384835c75, type: 2}
+  eatSoundEffect: {fileID: 8300000, guid: 9d52c6facc7d77f42a7fae4e226c5223, type: 3}
+  playerStats: {fileID: 0}
+  UIController: {fileID: 0}
+  collObj: {fileID: 0}
   distanceGrowth: 0.15
   beforeSizeTimesInitialSize: 0
-  dangerState: 0
-  UIController: {fileID: 0}
   timeColorProgressInterpolation: 0
-  currentColor: {r: 1, g: 1, b: 1, a: 0}
   currentColorIndex: 0
   coroutinesRunning: 0
   initialScale: 0
-  collObj: {fileID: 0}
   sizeThresholdDoubleSize: 40
   threatCount: 0
   totalThreatLevel: 0
@@ -15454,7 +15453,8 @@ MonoBehaviour:
   afterSizeTimesInitialSize: 0
   fractionOfTransitionSize: 0
   reductionNettoRate: 0
-  eatSoundEffect: {fileID: 8300000, guid: 9d52c6facc7d77f42a7fae4e226c5223, type: 3}
+  dangerState: 0
+  currentColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!135 &1210117778
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18845,17 +18845,17 @@ PrefabInstance:
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.14220412
+      value: 0.1024922
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.14220412
+      value: 0.027179973
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.14220412
+      value: 0.1024922
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c586ada0063a0394daeb6670682e966b, type: 3}
@@ -19031,7 +19031,7 @@ PrefabInstance:
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 124.32
+      value: 124.263
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
@@ -19041,7 +19041,7 @@ PrefabInstance:
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 259.47
+      value: 259.389
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
@@ -19091,7 +19091,7 @@ PrefabInstance:
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.29919443
+      value: 0.057694282
       objectReference: {fileID: 0}
     - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
         type: 3}
