@@ -30,6 +30,7 @@ public class UIManagerScript1 : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName: "MainMenu");
     }
 
@@ -37,7 +38,6 @@ public class UIManagerScript1 : MonoBehaviour
     {
         PausePanel.DOMove(new Vector3(Canvas.anchoredPosition.x, Canvas.anchoredPosition.y, 0), 0.5f, false).SetDelay(growDelay);
         GamePanel.DOMove(new Vector3(Canvas.anchoredPosition.x, Canvas.anchoredPosition.y + screenHeight, 0), 0.5f, false).SetDelay(growDelay);
-        //TO DO: disable player movement and all other things that don't stop moving with the above
         Time.timeScale = 0f;
     }
 
@@ -45,7 +45,6 @@ public class UIManagerScript1 : MonoBehaviour
     {
         PausePanel.DOMove(new Vector3(Canvas.anchoredPosition.x, Canvas.anchoredPosition.y + screenHeight, 0), 0.5f, false).SetDelay(growDelay);
         GamePanel.DOMove(new Vector3(Canvas.anchoredPosition.x, Canvas.anchoredPosition.y, 0), 0.5f, false).SetDelay(growDelay);
-        //TO DO: enable player movement and all other things that have been disabled
         Time.timeScale = 1f;
     }
 
