@@ -16,7 +16,7 @@ public class CheckDeath : MonoBehaviour
 
     protected void CheckThreat()
     {
-        if (StatsController.globalThreatLevel > 5)
+        if (StatsController.globalThreatLevel > 10)
         {
             target.SetActive(true);
             oldTragets.SetActive(false);
@@ -34,7 +34,7 @@ public class CheckDeath : MonoBehaviour
         GameObject[] birdList = GameObject.FindGameObjectsWithTag("lb_bird");
         foreach(var bird in birdList)
         {
-            if(Vector3.Distance(transform.position,bird.transform.position) < 1f)
+            if(Vector3.Distance(transform.position,bird.transform.position) < 0.5f)
             {
                 canvasGroup.DOFade(1, 2f).SetDelay(1);
                 GoToGameOver();
