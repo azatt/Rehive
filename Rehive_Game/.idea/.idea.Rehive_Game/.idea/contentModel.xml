@@ -10,9 +10,21 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="ActivatePostProcessing.cs" t="Include" />
+        <e p="Alien" t="Include">
+          <e p="ALien Info.txt" t="Include" />
+        </e>
+        <e p="AudioManager.cs" t="Include" />
+        <e p="Butterfly (Animated)" t="Include">
+          <e p="Butterfly (Animated).txt" t="Include" />
+        </e>
         <e p="cameraScript.cs" t="Include" />
+        <e p="CamoMeter.cs" t="Include" />
+        <e p="CheckDeath.cs" t="Include" />
+        <e p="CheckEnterDangerState.cs" t="Include" />
+        <e p="CheckExitDanger.cs" t="Include" />
         <e p="ControllingDayNight.cs" t="Include" />
         <e p="DangerBar.cs" t="Include" />
+        <e p="DangerScript.cs" t="Include" />
         <e p="Editor" t="Include">
           <e p="Readme-ResourceChecker.txt" t="Include" />
           <e p="ResourceChecker.cs" t="Include" />
@@ -100,6 +112,8 @@
           <e p="StatsControllerTest2.cs" t="Include" />
           <e p="UIController.cs" t="Include" />
         </e>
+        <e p="SizeMeter.cs" t="Include" />
+        <e p="SpeedMeter.cs" t="Include" />
         <e p="Spotlight.cs" t="Include" />
         <e p="TestScript.cs" t="Include" />
         <e p="UI" t="Include">
@@ -120,6 +134,7 @@
           </e>
           <e p="UIManagerScript.cs" t="Include" />
           <e p="UIManagerScript1.cs" t="Include" />
+          <e p="UIManagerScript2.cs" t="Include" />
         </e>
         <e p="UnityAssets" t="Include">
           <e p="[BFW]SimpleDynamicClouds" t="Include">

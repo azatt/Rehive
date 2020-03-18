@@ -19,7 +19,7 @@ public class DangerBar : MonoBehaviour
     public void Update()
     {
         SetBarSize(StatsController.globalThreatLevel/20);
-        if(StatsController.globalThreatLevel > 4 && DangerScript.dangerState == 0)
+        if(StatsController.globalThreatLevel > 15 && DangerScript.dangerState == 0)
         {
             enterDanger.Play();
             DangerScript.dangerState = 0;
