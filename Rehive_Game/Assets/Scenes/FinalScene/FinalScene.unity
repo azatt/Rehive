@@ -3824,6 +3824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enterDangerState: {fileID: 549971454}
   exitDangerState: {fileID: 857465944}
+  enterDanger: 8
 --- !u!4 &275778431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 3add0ea48b4c0f541b25616dd6e6d4a3,
@@ -3951,6 +3952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitDangerState: {fileID: 857465944}
   currentDangerState: {fileID: 1728142649}
+  enterDanger: 8
 --- !u!4 &281124174
 Transform:
   m_ObjectHideFlags: 0
@@ -8492,6 +8494,7 @@ MonoBehaviour:
   enterDangerState: {fileID: 549971454}
   dangerState: {fileID: 1728142649}
   exitDangerState: {fileID: 549971454}
+  enterDanger: 8
 --- !u!4 &684229157
 Transform:
   m_ObjectHideFlags: 0
@@ -16700,9 +16703,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326886068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b185e377508f31546b5c1e02e4877cb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 149888c23b23a6247baf99e8a76f88e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 4d019d20c3d5cfa48958b4982fff3815, type: 2}
 --- !u!114 &1326886071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18270,9 +18274,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1481715656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b185e377508f31546b5c1e02e4877cb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 149888c23b23a6247baf99e8a76f88e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 4d019d20c3d5cfa48958b4982fff3815, type: 2}
 --- !u!114 &1481715659
 MonoBehaviour:
   m_ObjectHideFlags: 0
