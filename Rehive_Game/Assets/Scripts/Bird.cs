@@ -24,7 +24,7 @@ public class Bird : MonoBehaviour
     public GameObject target;
     public GameObject oldTragets;
     public float dist;
-    private float threatLevelThresholdDeath;
+    public float threatLevelThresholdDeath = 10;
 
     void Start()
     {
@@ -152,10 +152,15 @@ public class Bird : MonoBehaviour
     protected void CheckBirdDistance()
     {
         dist= Vector3.Distance(player.transform.position, transform.position);
-        if (Vector3.Distance(player.transform.position, transform.position) < 0.1f)
+        if (Vector3.Distance(player.transform.position, transform.position) < 0.5f)
         {
-            StatsController.globalThreatLevel = 0;
-            SceneManager.LoadScene("GameOver");
+            StartCoroutine(TransitionToGameOverScene());
         }
+    }
+    IEnumerator TransitionToGameOverScene()
+    {
+        yield return new WaitForSeconds(2f);
+        StatsController.globalThreatLevel = 0;
+        SceneManager.LoadScene("GameOver");
     }
 }

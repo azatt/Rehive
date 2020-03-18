@@ -85,7 +85,7 @@ public class StatsController : MonoBehaviour
             growInterpolate();
         }
         //totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
-        totalThreatLevel += threatLevelRate * Time.deltaTime * (1 - playerStats.camo/150 * 0.5f);
+        totalThreatLevel += threatLevelRate * Time.deltaTime * (1 - (float)playerStats.camo/150f * 0.6f);
         if(totalThreatLevel > 0)
         {
             reductionNettoRate= reductionRate;
@@ -100,7 +100,7 @@ public class StatsController : MonoBehaviour
         globalThreatLevel = totalThreatLevel;
         if(dangerState == DangerState.death)
         {
-            globalThreatLevel = 20;
+            globalThreatLevel = 10;
         }
     }
 
@@ -109,11 +109,11 @@ public class StatsController : MonoBehaviour
         while (true)
         {
 
-            if (threatCount > 0 && dangerState != DangerState.safeZone)
+            if (threatCount > 0 && dangerState != DangerState.safeZone && dangerState != DangerState.death)
             {
                 EnterDangerState();
             }
-            else if(dangerState != DangerState.safeZone)
+            else if(dangerState != DangerState.safeZone && dangerState != DangerState.death)
             {
                 EnterHiddenState();
             }
@@ -141,7 +141,6 @@ public class StatsController : MonoBehaviour
                 break;
             case PowerUp.Tag.SafeZone:
                 EnterSafeZoneState();
-                print("safe");
                 break;
         }
     }
@@ -156,11 +155,11 @@ public class StatsController : MonoBehaviour
 
     void OnTriggerExit(Collider otherCollider)
     {
+        if(dangerState == DangerState.death) { return; }
         switch (otherCollider.gameObject.tag)
         {
             case PowerUp.Tag.SafeZone:
                 EnterWaitForUpdateState();
-                print("exit");
                 break;
         }
     }
@@ -193,6 +192,7 @@ public class StatsController : MonoBehaviour
 
     public void EnterSafeZoneState()
     {
+        if(dangerState == DangerState.death) { return; }
         dangerState = DangerState.safeZone;
         //UIController.dangerText.text = "You are in a safezone!";
 

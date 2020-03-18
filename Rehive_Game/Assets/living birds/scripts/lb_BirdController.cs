@@ -24,7 +24,7 @@ public class lb_BirdController : MonoBehaviour {
 	GameObject[] myBirds;
 	List<string> myBirdTypes = new List<string>();
 	List<GameObject>  birdGroundTargets = new List<GameObject>();
-	List<GameObject> birdPerchTargets = new List<GameObject>();
+	public List<GameObject> birdPerchTargets = new List<GameObject>();
 	int activeBirds = 0;
 	int birdIndex = 0;
 	GameObject[] featherEmitters = new GameObject[3];
