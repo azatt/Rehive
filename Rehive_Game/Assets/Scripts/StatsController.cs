@@ -206,7 +206,7 @@ public class StatsController : MonoBehaviour
 
     private void AddToCamo(int amount)
     {
-        playerStats.AddStats(Stats.Type.Camo, amount);
+        playerStats.AddStats(Stats.Type.Camo, (amount*10)/12);
         //UIController.camoText.text = "Camo:" + playerStats.camo.ToString();
         camoValue = playerStats.camo;
         int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 12);
@@ -224,6 +224,7 @@ public class StatsController : MonoBehaviour
         playerStats.AddStats(Stats.Type.Speed, amount);
         //UIController.speedText.text = "Speed:" + playerStats.speed.ToString();
         speedValue = playerStats.speed;
+        bodyController.minDistance -= distanceGrowth / 2;
         //movementController.climbSpeed = movementController.initialSpeed + playerStats.speed / 10;
         movementController.climbSpeed += 1;
     }
