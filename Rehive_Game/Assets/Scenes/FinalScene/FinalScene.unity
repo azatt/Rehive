@@ -19083,21 +19083,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 134.436
       objectReference: {fileID: 0}
-    - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.29919443
-      objectReference: {fileID: 0}
-    - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.057694282
-      objectReference: {fileID: 0}
-    - target: {fileID: 7518694674251827871, guid: c586ada0063a0394daeb6670682e966b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.29919443
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c586ada0063a0394daeb6670682e966b, type: 3}
 --- !u!4 &1498339861 stripped
@@ -22659,9 +22644,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: {fileID: 1010112173}
-  checkstate: 60
   cutscene: {fileID: 504399888}
   IsVlinder: 0
+  checkstate: 60
 --- !u!1 &1727693041
 GameObject:
   m_ObjectHideFlags: 0
