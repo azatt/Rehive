@@ -5468,8 +5468,8 @@ RectTransform:
   m_Father: {fileID: 1285043550}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5701,6 +5701,8 @@ PlayableDirector:
     value: {fileID: 1545539968}
   - key: {fileID: 5415863254067758693, guid: f5158dfadc54db148b0b434af2a764b4, type: 2}
     value: {fileID: 567455299}
+  - key: {fileID: 1053608748186445570, guid: f5158dfadc54db148b0b434af2a764b4, type: 2}
+    value: {fileID: 1210117771}
   m_ExposedReferences:
     m_References:
     - 99549810a19198241a21178fc5ae3dff: {fileID: 195886702}
@@ -12486,8 +12488,8 @@ RectTransform:
   m_Father: {fileID: 1984768206}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -21919,7 +21921,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720996516}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -21967,8 +21969,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720996516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 122.159, y: 113.312, z: 159.234}
-  m_LocalScale: {x: 0.6381352, y: 1.4965028, z: 0.429268}
+  m_LocalPosition: {x: 122.394, y: 111.968, z: 159.358}
+  m_LocalScale: {x: 0.6381352, y: -0.07295848, z: 0.681623}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
@@ -21985,8 +21987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4716d2647f5af49a4feffe77c22f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: {fileID: 0}
-  checkstate: 0
+  message: {fileID: 1010112173}
+  checkstate: 50
   cutscene: {fileID: 504399888}
   IsVlinder: 0
 --- !u!1 &1727693041
@@ -22022,7 +22024,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -25668,7 +25670,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
