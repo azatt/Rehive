@@ -206,10 +206,13 @@ public class StatsController : MonoBehaviour
 
     private void AddToCamo(int amount)
     {
-        playerStats.AddStats(Stats.Type.Camo, (amount*10)/12);
+        if(playerStats.camo == 100)
+            return;
+        
+        playerStats.AddStats(Stats.Type.Camo, amount);
         //UIController.camoText.text = "Camo:" + playerStats.camo.ToString();
         camoValue = playerStats.camo;
-        int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 12);
+        int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 10);
 
         if (colorIndex > currentColorIndex)
         {
@@ -220,7 +223,9 @@ public class StatsController : MonoBehaviour
 
     private void AddToSpeed(int amount)
     {
-
+        if(playerStats.speed == 100)
+            return;
+        
         playerStats.AddStats(Stats.Type.Speed, amount);
         //UIController.speedText.text = "Speed:" + playerStats.speed.ToString();
         speedValue = playerStats.speed;
@@ -231,7 +236,9 @@ public class StatsController : MonoBehaviour
 
     private void AddToSize(int amount)
     {
-
+        if(playerStats.size == 100)
+            return;
+        
         growingState = GrowingState.growing;
         beforeSizeTimesInitialSize = 1 + playerStats.size / sizeThresholdDoubleSize;
         playerStats.AddStats(Stats.Type.Size, amount);

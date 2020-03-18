@@ -30,6 +30,7 @@
           <e p="ResourceChecker.cs" t="Include" />
         </e>
         <e p="giveScriptChild.cs" t="Include" />
+        <e p="GoToWinningScene.cs" t="Include" />
         <e p="living birds" t="Include">
           <e p="demo" t="Include">
             <e p="livingBirdsDemoScript.cs" t="Include" />
