@@ -100,7 +100,7 @@ public class StatsController : MonoBehaviour
         globalThreatLevel = totalThreatLevel;
         if(dangerState == DangerState.death)
         {
-            globalThreatLevel = 10;
+            globalThreatLevel = 16;
         }
     }
 

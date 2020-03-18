@@ -24,7 +24,7 @@ public class Bird : MonoBehaviour
     public GameObject target;
     public GameObject oldTragets;
     public float dist;
-    public float threatLevelThresholdDeath = 10;
+    public float threatLevelThresholdDeath = 15;
 
     void Start()
     {
