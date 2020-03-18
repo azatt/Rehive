@@ -5,13 +5,12 @@ using System.Collections.Generic;
 public class lb_BirdController : MonoBehaviour {
 	public int idealNumberOfBirds;
 	public int maximumNumberOfBirds;
-	public Camera currentCamera;
 	public float unspawnDistance = 10.0f;
 	public bool highQuality = true;
 	public bool collideWithObjects = true;
-	public LayerMask groundLayer;
 	public float birdScale = 1.0f;
-
+	int activeBirds = 0;
+	int birdIndex = 0;
 	public bool robin = true;
 	public bool blueJay = true;
 	public bool cardinal = true;
@@ -19,18 +18,20 @@ public class lb_BirdController : MonoBehaviour {
 	public bool sparrow = true;
 	public bool goldFinch = true;
 	public bool crow = true;
-
 	bool pause = false;
+	
 	GameObject[] myBirds;
+	GameObject[] featherEmitters = new GameObject[3];
 	List<string> myBirdTypes = new List<string>();
 	List<GameObject>  birdGroundTargets = new List<GameObject>();
 	public List<GameObject> birdPerchTargets = new List<GameObject>();
-	int activeBirds = 0;
-	int birdIndex = 0;
-	GameObject[] featherEmitters = new GameObject[3];
 
+
+	public LayerMask groundLayer;
+	
     public GameObject target;
     public GameObject oldTragets;
+    public Camera currentCamera;
 
     public void AllFlee(){
 		if(!pause){

@@ -6,7 +6,6 @@ using UnityEngine.Rendering.PostProcessing;
 public class ActivatePostProcessing : MonoBehaviour
 {
     public PostProcessVolume volume;
-    //public PostProcessingProfile ppProfile;
 
     void Start()
     {

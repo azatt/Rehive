@@ -6,12 +6,7 @@ public class CaterPillarMovement : MonoBehaviour
 {
     [SerializeField] public float initialSpeed;
     [SerializeField] public float climbSpeed = 1;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()

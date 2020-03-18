@@ -17,11 +17,7 @@ public class Stats : MonoBehaviour
         this.speed = speed;
         this.camo = camo;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void AddStats(Type type, int amount)
     {
 

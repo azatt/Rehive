@@ -12,7 +12,6 @@ public class CheckDeath : MonoBehaviour
 
     void Start()
     {
-
         statusPlayer = GetComponent<StatsController>();
     }
     void Update()

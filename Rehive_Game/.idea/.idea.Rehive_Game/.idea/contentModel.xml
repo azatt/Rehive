@@ -9,28 +9,16 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="ActivatePostProcessing.cs" t="Include" />
         <e p="Alien" t="Include">
           <e p="ALien Info.txt" t="Include" />
         </e>
-        <e p="AudioManager.cs" t="Include" />
         <e p="Butterfly (Animated)" t="Include">
           <e p="Butterfly (Animated).txt" t="Include" />
         </e>
-        <e p="cameraScript.cs" t="Include" />
-        <e p="CamoMeter.cs" t="Include" />
-        <e p="CheckDeath.cs" t="Include" />
-        <e p="CheckEnterDangerState.cs" t="Include" />
-        <e p="CheckExitDanger.cs" t="Include" />
-        <e p="ControllingDayNight.cs" t="Include" />
-        <e p="DangerBar.cs" t="Include" />
-        <e p="DangerScript.cs" t="Include" />
         <e p="Editor" t="Include">
           <e p="Readme-ResourceChecker.txt" t="Include" />
           <e p="ResourceChecker.cs" t="Include" />
         </e>
-        <e p="giveScriptChild.cs" t="Include" />
-        <e p="GoToWinningScene.cs" t="Include" />
         <e p="living birds" t="Include">
           <e p="demo" t="Include">
             <e p="livingBirdsDemoScript.cs" t="Include" />
@@ -85,8 +73,6 @@
             </e>
           </e>
         </e>
-        <e p="RandomScript.cs" t="Include" />
-        <e p="RotationFollowMe.cs" t="Include" />
         <e p="Samples" t="Include">
           <e p="Terrain Tools" t="Include">
             <e p="0.1.0-preview" t="Include">
@@ -97,28 +83,44 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="ActivatePostProcessing.cs" t="Include" />
+          <e p="AudioManager.cs" t="Include" />
+          <e p="AudioVolume.cs" t="Include" />
           <e p="Bird.cs" t="Include" />
+          <e p="cameraScript.cs" t="Include" />
+          <e p="CamoMeter.cs" t="Include" />
           <e p="CaterPillarMovement.cs" t="Include" />
-          <e p="Climb - Copy.cs" t="Include" />
+          <e p="CheckDeath.cs" t="Include" />
+          <e p="CheckEnterDangerState.cs" t="Include" />
+          <e p="CheckExitDanger.cs" t="Include" />
           <e p="Climb.cs" t="Include" />
+          <e p="ControllingDayNight.cs" t="Include" />
+          <e p="DangerBar.cs" t="Include" />
+          <e p="DangerScript.cs" t="Include" />
           <e p="DangerZone.cs" t="Include" />
           <e p="EndPoint.cs" t="Include" />
+          <e p="giveScriptChild.cs" t="Include" />
+          <e p="GoToWinningScene.cs" t="Include" />
           <e p="KeepAbove.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PowerUp.cs" t="Include" />
           <e p="ProceduralAnim.cs" t="Include" />
+          <e p="RandomScript.cs" t="Include" />
+          <e p="RotationFollowMe.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
+          <e p="SizeMeter.cs" t="Include" />
+          <e p="SpeedMeter.cs" t="Include" />
           <e p="Stats.cs" t="Include" />
           <e p="StatsController.cs" t="Include" />
           <e p="StatsControllerTest2.cs" t="Include" />
+          <e p="TestScript.cs" t="Include" />
           <e p="UIController.cs" t="Include" />
+          <e p="UIManagerScript.cs" t="Include" />
+          <e p="UIManagerScript1.cs" t="Include" />
+          <e p="UIManagerScript2.cs" t="Include" />
         </e>
-        <e p="SizeMeter.cs" t="Include" />
-        <e p="SpeedMeter.cs" t="Include" />
         <e p="Spotlight.cs" t="Include" />
-        <e p="TestScript.cs" t="Include" />
         <e p="UI" t="Include">
-          <e p="AudioVolume.cs" t="Include" />
           <e p="Demigiant" t="Include">
             <e p="DOTween" t="Include">
               <e p="Modules" t="Include">
@@ -133,9 +135,6 @@
               <e p="ReadMe.txt" t="Include" />
             </e>
           </e>
-          <e p="UIManagerScript.cs" t="Include" />
-          <e p="UIManagerScript1.cs" t="Include" />
-          <e p="UIManagerScript2.cs" t="Include" />
         </e>
         <e p="UnityAssets" t="Include">
           <e p="[BFW]SimpleDynamicClouds" t="Include">

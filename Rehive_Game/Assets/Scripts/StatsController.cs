@@ -6,38 +6,31 @@ using UnityEngine.Playables;
 
 public class StatsController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Stats playerStats;
     [SerializeField] float transitionStartTime;
     [SerializeField] float growingTime = 2;
     [SerializeField] float colorChangingTime = 2;
     [SerializeField] Vector3 startingScale;
     [SerializeField] Vector3 targetScale;
+    [SerializeField] Color[] colors;
     [SerializeField] GameObject camoBody;
     [SerializeField] GameObject scalingBody;
-    [SerializeField] Color[] colors;
     [SerializeField] Material[] materials;
+    [SerializeField] private AudioClip eatSoundEffect;
 
-    public float distanceGrowth = 0.15f;
-    public static float globalThreatLevel, camoValue, sizeValue, speedValue;
-    public enum GrowingState { growing, stagnating }
-    public enum DangerState { hidden, safeZone, danger, waitingForUpdate, death }
-
-    GrowingState growingState;
-    public float beforeSizeTimesInitialSize;
-    private float initialSize;
-    public DangerState dangerState;
+    public Stats playerStats;
     private Climb movementController;
     private ProceduralAnim bodyController;
     public UIController UIController;
-    private Color endingColor;
+    public GameObject collObj;
+    
+    public float distanceGrowth = 0.15f;
+    public static float globalThreatLevel, camoValue, sizeValue, speedValue;
+    public float beforeSizeTimesInitialSize;
+    private float initialSize;
     public float timeColorProgressInterpolation;
-    private Color startingColor;
-    public Color currentColor;
     public int currentColorIndex;
     public int coroutinesRunning;
     public float initialScale;
-    public GameObject collObj;
     public float sizeThresholdDoubleSize = 40;
     public int threatCount;
     public float totalThreatLevel;
@@ -47,8 +40,14 @@ public class StatsController : MonoBehaviour
     public float afterSizeTimesInitialSize;
     public float fractionOfTransitionSize;
     public float reductionNettoRate;
-
-    [SerializeField] private AudioClip eatSoundEffect;
+    
+    public enum GrowingState { growing, stagnating }
+    GrowingState growingState;
+    public enum DangerState { hidden, safeZone, danger, waitingForUpdate, death }
+    public DangerState dangerState;
+    private Color endingColor;
+    private Color startingColor;
+    public Color currentColor;
 
     void Start()
     {
@@ -84,7 +83,6 @@ public class StatsController : MonoBehaviour
         {
             growInterpolate();
         }
-        //totalThreatLevel *= Mathf.Pow(0.90f, Time.deltaTime);
         totalThreatLevel += threatLevelRate * Time.deltaTime * (1 - (float)playerStats.camo/150f * 0.6f);
         if(totalThreatLevel > 0)
         {
@@ -101,7 +99,6 @@ public class StatsController : MonoBehaviour
 
             totalThreatLevel -= reductionNettoRate* Time.deltaTime;
         }
-        //UIController.threatLevel.text = "Count: " + threatCount.ToString() + " ThreatLevel:" + totalThreatLevel.ToString();
         globalThreatLevel = totalThreatLevel;
         if(dangerState == DangerState.death)
         {
@@ -178,21 +175,10 @@ public class StatsController : MonoBehaviour
     public void EnterDangerState()
     {
         dangerState = DangerState.danger;
-        //UIController.dangerText.text = "You are in DANGER!";
     }
     public void EnterHiddenState()
     {
         dangerState = DangerState.hidden;
-        try
-        {
-
-            //UIController.dangerText.text = "You are hidden!";
-            //UIController.threatLevel.text = "ThreatLevel:0";
-        }
-        catch
-        {
-
-        }
     }
 
 
@@ -200,8 +186,6 @@ public class StatsController : MonoBehaviour
     {
         if(dangerState == DangerState.death) { return; }
         dangerState = DangerState.safeZone;
-        //UIController.dangerText.text = "You are in a safezone!";
-
     }
 
     private void AddToCamo(int amount)
@@ -210,7 +194,6 @@ public class StatsController : MonoBehaviour
             return;
         
         playerStats.AddStats(Stats.Type.Camo, amount);
-        //UIController.camoText.text = "Camo:" + playerStats.camo.ToString();
         camoValue = playerStats.camo;
         int colorIndex = Mathf.Clamp(playerStats.camo / 10, 0, 10);
 
@@ -227,10 +210,8 @@ public class StatsController : MonoBehaviour
             return;
         
         playerStats.AddStats(Stats.Type.Speed, amount);
-        //UIController.speedText.text = "Speed:" + playerStats.speed.ToString();
         speedValue = playerStats.speed;
         bodyController.minDistance -= distanceGrowth / 2;
-        //movementController.climbSpeed = movementController.initialSpeed + playerStats.speed / 10;
         movementController.climbSpeed += 1;
     }
 
@@ -243,7 +224,6 @@ public class StatsController : MonoBehaviour
         beforeSizeTimesInitialSize = 1 + playerStats.size / sizeThresholdDoubleSize;
         playerStats.AddStats(Stats.Type.Size, amount);
         afterSizeTimesInitialSize = 1 + playerStats.size / sizeThresholdDoubleSize;
-        //UIController.sizeText.text = "Size:" + playerStats.size.ToString();
         sizeValue = playerStats.size;
         startInterpolatedGrowth();
     }
@@ -319,7 +299,6 @@ public class StatsController : MonoBehaviour
     {
         get
         {
-            //return transform.position + new Vector3(0, 0.5f, 0);
             return transform.position + new Vector3(0, 0, 0);
         }
     }

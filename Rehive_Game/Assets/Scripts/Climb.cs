@@ -5,24 +5,22 @@ using UnityEngine;
 public class Climb : MonoBehaviour
 {
     public bool isClimbing;
-
+    public bool IsOk = false;
     bool inPosition;
     bool isLerping;
     float posT;
-    Vector3 startPos;
-    Vector3 targetPos;
-    Quaternion startRot;
-    Quaternion targetRot;
     public float positionOffset;
     public float OffsetFromWall = 0.3f;
     public float speed_multiplier = 0.2f;
     public float climbSpeed = 3;
     public float rotateSpeed = 5;
-
     public float delta;
-
-    public bool IsOk = false;
-
+    
+    Vector3 startPos;
+    Vector3 targetPos;
+    Quaternion startRot;
+    Quaternion targetRot;
+    
     Transform helper;
     private Transform followMeHelper;
     public Transform followMe;
@@ -127,7 +125,6 @@ public class Climb : MonoBehaviour
         Vector3 origin = transform.position;
         float dis = positionOffset;
         Vector3 dir = moveDir;
-        Debug.DrawRay(origin, dir * dis, Color.red);
         RaycastHit hit;
 
         if (Physics.Raycast(origin, dir, out hit, dis) && hit.transform.tag != "SafeZone" && hit.transform.tag != "Checkbox")
@@ -138,20 +135,18 @@ public class Climb : MonoBehaviour
         origin += moveDir * dis;
         dir = helper.forward;
         float dis2 = 0.5f;
-
-        //Debug.DrawRay(origin, dir * dis2, Color.blue);
+        
         if (Physics.Raycast(origin, dir, out hit, dis))
         {
             helper.position = PosWithOffset(origin, hit.point);
-            helper.rotation = Quaternion.LookRotation(-hit.normal) ; //, moveDir);
+            helper.rotation = Quaternion.LookRotation(-hit.normal) ;
             followMeHelper.rotation = Quaternion.LookRotation(-hit.normal, moveDir) * Quaternion.Euler(180, -90, 0 );
             return true;
         }
 
         origin += dir * dis2;
         dir = -Vector3.up;
-
-        //Debug.DrawRay(origin, dir, Color.yellow);
+        
         if (Physics.Raycast(origin, dir, out hit, dis2))
         {
             float angle = Vector3.Angle(helper.up, hit.normal);

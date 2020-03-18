@@ -24,12 +24,6 @@ public class ControllingDayNight : MonoBehaviour
     //Speed of the cycle (if you set this to 1 the one hour in the cycle will pass in 1 real life second)
     public float daySpeedMultiplier = 10f;
 
-    void Start()
-    {
-
-    }
-
-
     // Update is called once per frame
     void Update()
     {
