@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RotationFollowMe : MonoBehaviour
 {
-    float rotSpeed;
     Quaternion targetRotation;
+    float rotSpeed;
 
     void Start()
     {

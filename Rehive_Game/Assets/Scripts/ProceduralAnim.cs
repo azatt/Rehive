@@ -11,21 +11,21 @@ public class ProceduralAnim : MonoBehaviour
     public float minDistance;
     public float speed;
     public float rotationspeed;
-    public GameObject player;
     public float minMovingDistance;
-
-    bool moving;
-    float curSpeed;
-    float distance;
-    float animationtimer;
-    Transform curBodyPart;
-    Transform prevBodyPart;
-    Vector3 playerOldPos;
-    Vector3 playerOldScale;
-
     private float xPos, timer;
     public float animSpeed, frequency, amplitude, contractDelay;
     public float initialOffSetFromTree;
+    float curSpeed;
+    float distance;
+    float animationtimer;
+    bool moving;
+    
+    Transform curBodyPart;
+    Transform prevBodyPart;
+    public GameObject player;
+    
+    Vector3 playerOldPos;
+    Vector3 playerOldScale;
 
     private void Start()
     {

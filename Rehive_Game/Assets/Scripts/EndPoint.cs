@@ -8,11 +8,11 @@ public class EndPoint : MonoBehaviour
 {
     private StatsController checker;
     public GameObject message;
-
-    public int checkstate;
     public PlayableDirector cutscene;
 
     public bool IsVlinder;
+    public int checkstate;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +34,9 @@ public class EndPoint : MonoBehaviour
             if (checker.playerStats.size >= checkstate)
             {
                 IsVlinder = true;
-                Debug.Log("Become Butterfly");
             }
             else
             {
-                print("not big enough");
                 message.gameObject.SetActive(true);
             }
 
