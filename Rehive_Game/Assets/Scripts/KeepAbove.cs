@@ -8,13 +8,6 @@ public class KeepAbove: MonoBehaviour
     public float maxRayDist = 0.1f;
     public GameObject intersected;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         

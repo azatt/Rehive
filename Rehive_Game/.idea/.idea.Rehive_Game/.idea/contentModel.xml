@@ -102,22 +102,20 @@
           <e p="giveScriptChild.cs" t="Include" />
           <e p="GoToWinningScene.cs" t="Include" />
           <e p="KeepAbove.cs" t="Include" />
-          <e p="Player.cs" t="Include" />
           <e p="PowerUp.cs" t="Include" />
           <e p="ProceduralAnim.cs" t="Include" />
-          <e p="RandomScript.cs" t="Include" />
           <e p="RotationFollowMe.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
           <e p="SizeMeter.cs" t="Include" />
           <e p="SpeedMeter.cs" t="Include" />
           <e p="Stats.cs" t="Include" />
           <e p="StatsController.cs" t="Include" />
-          <e p="StatsControllerTest2.cs" t="Include" />
-          <e p="TestScript.cs" t="Include" />
           <e p="UIController.cs" t="Include" />
-          <e p="UIManagerScript.cs" t="Include" />
-          <e p="UIManagerScript1.cs" t="Include" />
-          <e p="UIManagerScript2.cs" t="Include" />
+          <e p="UIManagerS" t="Include">
+            <e p="UIManagerScript.cs" t="Include" />
+            <e p="UIManagerScript1.cs" t="Include" />
+            <e p="UIManagerScript2.cs" t="Include" />
+          </e>
         </e>
         <e p="Spotlight.cs" t="Include" />
         <e p="UI" t="Include">
