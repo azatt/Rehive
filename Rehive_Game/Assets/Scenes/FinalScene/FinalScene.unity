@@ -252,7 +252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1ca5316dd08051f42b31052d31beefed, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1ca5316dd08051f42b31052d31beefed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2282,7 +2282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &97111340
 Transform:
   m_ObjectHideFlags: 0
@@ -2296,7 +2296,7 @@ Transform:
   m_Children:
   - {fileID: 195886704}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -7, y: 1, z: 0}
 --- !u!95 &97111341
 Animator:
@@ -5468,8 +5468,8 @@ RectTransform:
   m_Father: {fileID: 1285043550}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5697,6 +5697,12 @@ PlayableDirector:
     value: {fileID: 97111339}
   - key: {fileID: -4057148903343788430, guid: f5158dfadc54db148b0b434af2a764b4, type: 2}
     value: {fileID: 97111341}
+  - key: {fileID: -4183389983381685129, guid: f5158dfadc54db148b0b434af2a764b4, type: 2}
+    value: {fileID: 1545539968}
+  - key: {fileID: 5415863254067758693, guid: f5158dfadc54db148b0b434af2a764b4, type: 2}
+    value: {fileID: 567455299}
+  - key: {fileID: 1053608748186445570, guid: f5158dfadc54db148b0b434af2a764b4, type: 2}
+    value: {fileID: 1210117771}
   m_ExposedReferences:
     m_References:
     - 99549810a19198241a21178fc5ae3dff: {fileID: 195886702}
@@ -5712,8 +5718,9 @@ Transform:
   m_LocalScale: {x: 0.009830229, y: 0.009830229, z: 0.009830229}
   m_Children:
   - {fileID: 1582691980}
+  - {fileID: 567455300}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &505005987
 PrefabInstance:
@@ -6507,6 +6514,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 554651866}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &567455299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 567455300}
+  - component: {fileID: 567455301}
+  m_Layer: 0
+  m_Name: GoToWinning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &567455300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567455299}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 504399889}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &567455301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567455299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f950bd7b28e92464197d737f8f99a9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 112070426}
 --- !u!4 &572233653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 3add0ea48b4c0f541b25616dd6e6d4a3,
@@ -12437,8 +12488,8 @@ RectTransform:
   m_Father: {fileID: 1984768206}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19863,7 +19914,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1582691976
 Animator:
   serializedVersion: 3
@@ -21870,7 +21921,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720996516}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -21918,8 +21969,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720996516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 122.159, y: 113.312, z: 159.234}
-  m_LocalScale: {x: 0.6381352, y: 1.4965028, z: 0.429268}
+  m_LocalPosition: {x: 122.394, y: 111.968, z: 159.358}
+  m_LocalScale: {x: 0.6381352, y: -0.07295848, z: 0.681623}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
@@ -21936,8 +21987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4716d2647f5af49a4feffe77c22f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: {fileID: 0}
-  checkstate: 0
+  message: {fileID: 1010112173}
+  checkstate: 50
   cutscene: {fileID: 504399888}
   IsVlinder: 0
 --- !u!1 &1727693041
@@ -21973,7 +22024,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22684,7 +22735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a3b4ced541293e4abee12bf1574f3c2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a3b4ced541293e4abee12bf1574f3c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -25619,7 +25670,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -130,9 +130,9 @@ public class Bird : MonoBehaviour
             statusPlayer.threatLevelRate -= previousThreatLevel;
 
         }
-        CheckThreat();
+        //CheckThreat();
     }
-
+    /*
     protected void CheckThreat()
     {
         if (StatsController.globalThreatLevel > threatLevelThresholdDeath)
@@ -163,4 +163,5 @@ public class Bird : MonoBehaviour
         StatsController.globalThreatLevel = 0;
         SceneManager.LoadScene("GameOver");
     }
+    */
 }
