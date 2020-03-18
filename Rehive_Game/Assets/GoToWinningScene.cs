@@ -8,15 +8,15 @@ public class GoToWinningScene : MonoBehaviour
 {
     public CanvasGroup canvasGroup;
 
-    private void Awake()
+    private void Update()
     {
-        canvasGroup.DOFade(1, 2f).SetDelay(1);
+        canvasGroup.DOFade(1, 1f);
         GoToWinning();
     }
 
     IEnumerator LoadWinning()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene("GameWin");
     }
 
