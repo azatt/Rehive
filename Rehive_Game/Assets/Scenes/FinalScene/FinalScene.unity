@@ -100,7 +100,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 3efcdf1c3e13532409f6c35da9056cce,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -16700,9 +16700,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326886068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b185e377508f31546b5c1e02e4877cb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 149888c23b23a6247baf99e8a76f88e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 4d019d20c3d5cfa48958b4982fff3815, type: 2}
 --- !u!114 &1326886071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18270,9 +18271,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1481715656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b185e377508f31546b5c1e02e4877cb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 149888c23b23a6247baf99e8a76f88e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 4d019d20c3d5cfa48958b4982fff3815, type: 2}
 --- !u!114 &1481715659
 MonoBehaviour:
   m_ObjectHideFlags: 0
