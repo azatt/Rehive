@@ -21,6 +21,9 @@ public class CheckDeath : MonoBehaviour
             target.SetActive(true);
             oldTragets.SetActive(false);
             CheckBirdDistance();
+            StatsController.dangerState = StatsController.DangerState.death;
+                
+            
         }
         else
         {

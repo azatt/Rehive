@@ -26,7 +26,7 @@ public class StatsController : MonoBehaviour
     GrowingState growingState;
     public float beforeSizeTimesInitialSize;
     private float initialSize;
-    public DangerState dangerState;
+    public static DangerState dangerState;
     private Climb movementController;
     private ProceduralAnim bodyController;
     public UIController UIController;
