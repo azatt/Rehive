@@ -26,7 +26,7 @@ public class StatsController : MonoBehaviour
     GrowingState growingState;
     public float beforeSizeTimesInitialSize;
     private float initialSize;
-    public static DangerState dangerState;
+    public DangerState dangerState;
     private Climb movementController;
     private ProceduralAnim bodyController;
     public UIController UIController;
@@ -105,7 +105,7 @@ public class StatsController : MonoBehaviour
         globalThreatLevel = totalThreatLevel;
         if(dangerState == DangerState.death)
         {
-            globalThreatLevel = 16;
+            globalThreatLevel = 11;
         }
     }
 

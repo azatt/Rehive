@@ -8,7 +8,13 @@ public class CheckDeath : MonoBehaviour
     public GameObject target;
     public GameObject oldTragets;
     public CanvasGroup canvasGroup;
+    public StatsController statusPlayer;
 
+    void Start()
+    {
+
+        statusPlayer = GetComponent<StatsController>();
+    }
     void Update()
     {
         CheckThreat();
@@ -21,9 +27,7 @@ public class CheckDeath : MonoBehaviour
             target.SetActive(true);
             oldTragets.SetActive(false);
             CheckBirdDistance();
-            StatsController.dangerState = StatsController.DangerState.death;
-                
-            
+            statusPlayer.dangerState = StatsController.DangerState.death;
         }
         else
         {
