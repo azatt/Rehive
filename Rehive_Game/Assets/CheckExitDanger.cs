@@ -7,10 +7,11 @@ public class CheckExitDanger : MonoBehaviour
 {
     public PlayableDirector enterDangerState;
     public PlayableDirector exitDangerState;
+    public float enterDanger;
 
     void Update()
     {
-        if (StatsController.globalThreatLevel > 4)
+        if (StatsController.globalThreatLevel > enterDanger)
         {
             enterDangerState.Play();
             DangerScript.dangerState = 0;

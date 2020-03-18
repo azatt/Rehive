@@ -8,10 +8,11 @@ public class CheckEnterDangerState : MonoBehaviour
     public PlayableDirector enterDangerState;
     public PlayableDirector dangerState;
     public PlayableDirector exitDangerState;
+    public float enterDanger;
 
     void Update()
     {
-        if (StatsController.globalThreatLevel > 4)
+        if (StatsController.globalThreatLevel > enterDanger)
         {
             dangerState.Play();
             DangerScript.dangerState = 1;

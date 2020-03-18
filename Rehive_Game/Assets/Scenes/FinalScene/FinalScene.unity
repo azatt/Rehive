@@ -3824,6 +3824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enterDangerState: {fileID: 549971454}
   exitDangerState: {fileID: 857465944}
+  enterDanger: 8
 --- !u!4 &275778431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 3add0ea48b4c0f541b25616dd6e6d4a3,
@@ -3951,6 +3952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitDangerState: {fileID: 857465944}
   currentDangerState: {fileID: 1728142649}
+  enterDanger: 8
 --- !u!4 &281124174
 Transform:
   m_ObjectHideFlags: 0
@@ -8492,6 +8494,7 @@ MonoBehaviour:
   enterDangerState: {fileID: 549971454}
   dangerState: {fileID: 1728142649}
   exitDangerState: {fileID: 549971454}
+  enterDanger: 8
 --- !u!4 &684229157
 Transform:
   m_ObjectHideFlags: 0
